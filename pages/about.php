@@ -1,10 +1,41 @@
 <h1>О компании</h1>
 
 <div class="container">
+	<h2>Компании «СУС-СТРОЙ»</h2>
+	<p>Компания «СУС-СТРОЙ»  работает на рынке с 2010 года. За это время мы выполнили более 1000 заказов, над каждым из которых мы работали до тех пор, пока клиент не оставался полностью удовлетворен работой.
+		Высокое качество - наш главный приоритет.</p>
+	<p>Основные направления деятельности компании:</p>
+	<ul>
+		<li>Производство и укладка тротуарной плитки, бордюров и стеновых блоков;
+		<li>Монтаж ворот, калиток, дверей
+		<li>Производство сварных или сборных металлических лестниц разнообразных форм, с использованием элементов художественной ковки;
+		<li>Производство большого ассортимента художественных кованых изделий;
+	</ul>
+	<h2>Наши преимущества</h2>
+	<ul>
+		<li><u>Опыт.</u> Уже 7 лет изготавливаем кованые изделия в лучших традициях кузнечного ремесла, а штат сотрудников составляют мастера, у каждого из которых за плечами есть как минимум 10-летний опыт работ в кузнечном деле.
+		<li><u>Доступные цены.</u> Художественная ковка — дорогое удовольствие, но мы стараемся делать цены ниже, при этом никогда не экономим на качестве, всегда делая на нем акцент, даже если это вынуждает незначительно увеличить сроки работ.
+		<li><u>Гарантия на работу.</u> Мы скрупулезно подходим к вопросам качества наших работ и дает гарантию от трех лет на любое изделие.
+		<li><u>Отсутсвие шаблонов.</u> Все кованые изделия изготавливаются по индивидуальным эскизам, созданным в соответствии с пожеланиями заказчика. Такие
+	</ul>
+	<h2>Производство</h2>
+	<p><img src="images/menu_item_01.jpg" class="left">При изготовлении продукции компания использует собственные производственные мощности.</p>
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit assumenda cumque, dolorem alias, modi enim quam accusamus fugit non labore. Quidem laudantium vel voluptas facilis, ducimus impedit optio rem debitis.</p>
-	<p><img src="images/menu_item_01.jpg" class="left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, quas. Quasi cumque quibusdam, magni perferendis, reiciendis tenetur dignissimos placeat autem saepe repudiandae dolores magnam, sequi. Atque labore aut rem, quas placeat id qui dolor deserunt vel exercitationem odit beatae perferendis culpa nostrum autem ullam fugiat possimus corporis, magni natus. Earum voluptatem explicabo minima ipsum, dicta praesentium aspernatur sunt possimus nulla quis delectus illo itaque. Modi, expedita? Perspiciatis ipsa cupiditate laudantium molestias incidunt, deleniti amet error voluptate. Nulla deserunt fugit, ut, atque recusandae ipsa assumenda, culpa quae pariatur vitae ad dignissimos!</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem eos reprehenderit laboriosam at eaque dolorem doloribus facere aut ratione libero labore odio quasi, voluptate et consequatur molestias fugiat similique eum.</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum explicabo aliquam ex, iure at, temporibus adipisci laborum reprehenderit tempora praesentium dolor dicta architecto, vero accusantium, pariatur voluptatibus quo minus provident. Consequatur facere repellat, iusto maxime excepturi? Corrupti obcaecati fugiat nihil expedita inventore deserunt vitae veritatis!</p>
+	<p>Профессиональное кузнечное оборудование позволяюет нам изготавливать самые сложные элементы художественной ковки. </p>
 
+	<p>В производственном процессе мы используем только самые современные технологии, а профессионализм и опыт наших рабочих один из самых высоких в отрасли.</p>
+	<p>Производственные цеха компании «СУС-СТРОЙ» расположены по адресу: <a href = "contacts">Московская область, Пушкинский район, п. Лесной, ул. Мичурина, д. 11</a>.
+		Приезжайте и убедитесь сами: наше производство соотвествует всем требованиям и стандартам.</p>
+
+	<h2>Офис компании</h2>
+
+	<p>В офисах компании работают высококвалифицированные специалисты, которые проконсультируют и помогут определиться с выбором продукции, сделают расчет и составят предварительную смету.
+		Вы также можете самостоятельно ознакомиться c приблизительными  <a href = "price_list">ценами наших работ и услуг</a>.
+
+	Окончательное решение Вы сможете принять после визита инженера-замерщика. Наш инженер продемонстрирует образцы материалов,
+		произведет все необходимые измерения, расскажет сроках и этапах предстоящих работ.
+
+	Двери нашего офиса открыты для Вас ежедневно с 9 до 19:00 по адресу <a href = "contacts">Пушкинский район п. Лесной, ул. Мичурина, д. 11</a>.
+
+	Перед визитом просим Вас позвонить нашим менеджерам, чтобы мы могли заказать пропуск на машину...</p>
 </div>
