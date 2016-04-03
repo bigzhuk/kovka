@@ -39,50 +39,62 @@
 
 	$folder ['title'] = 'Балконы';
 	$folder ['folder'] = 'balkon';
+	$folder ['price'] = '15 000';
 	$folders[] = $folder;
 
 	$folder ['title'] = 'Беседки';
 	$folder ['folder'] = 'besedka';
+	$folder ['price'] = '15 000';
 	$folders[] = $folder;
 
 	$folder ['title'] = 'Лестницы';
 	$folder ['folder'] = 'lestnica';
+	$folder ['price'] = '15 000';
 	$folders[] = $folder;
 
 	$folder ['title'] = 'Мангалы';
 	$folder ['folder'] = 'mangal';
+	$folder ['price'] = '15 000';
 	$folders[] = $folder;
 
 	$folder ['title'] = 'Мебель и интерьер';
 	$folder ['folder'] = 'mebel';
+	$folder ['price'] = '15 000';
 	$folders[] = $folder;
 
 	$folder ['title'] = 'Мостики';
 	$folder ['folder'] = 'mostik';
+	$folder ['price'] = '15 000';
 	$folders[] = $folder;
 
 	$folder ['title'] = 'Навесы';
 	$folder ['folder'] = 'naves';
+	$folder ['price'] = '15 000';
 	$folders[] = $folder;
 
 	$folder ['title'] = 'Оргадки';
 	$folder ['folder'] = 'ogradka';
+	$folder ['price'] = '15 000';
 	$folders[] = $folder;
 
 	$folder ['title'] = 'Решётки';
 	$folder ['folder'] = 'reshetka';
+	$folder ['price'] = '15 000';
 	$folders[] = $folder;
 
 	$folder ['title'] = 'Урны';
 	$folder ['folder'] = 'urna';
+	$folder ['price'] = '15 000';
 	$folders[] = $folder;
 
 	$folder ['title'] = 'Ворота';
 	$folder ['folder'] = 'vorota';
+	$folder ['price'] = '15 000';
 	$folders[] = $folder;
 
 	$folder ['title'] = 'Заборы';
 	$folder ['folder'] = 'zabor';
+	$folder ['price'] = '15 000';
 	$folders[] = $folder;
 
 ?>
@@ -107,6 +119,8 @@
 			</tr>
 			</tbody>
 		</table>
+
+		<div style="text-align: center; margin-top: -25px; margin-bottom: 10px;" class="digit">от <?php echo $folder['price']; ?> руб</div>
 
 	<?php } ?>
 
