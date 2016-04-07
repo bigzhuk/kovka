@@ -1,10 +1,14 @@
 <h1>Доставка</h1>
 <div class="container">
-	<h2>Доставка это подзаголовок</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam suscipit molestiae architecto, minima quidem quas perspiciatis delectus dolorem. Sint ut sapiente architecto, officiis inventore nam hic qui voluptas amet accusamus.</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis esse, veniam ex rem dolores voluptatum necessitatibus <a href="">beatae magnam</a> commodi cumque, est nostrum. Ducimus, ullam incidunt adipisci accusamus natus. Qui tempora corrupti hic eaque quo, perferendis accusamus, quidem fuga facilis, rerum cum reprehenderit voluptate harum architecto. Optio ratione, ab tempore corrupti!</p>
-	<p><img src="images/img_kovka_4.jpg" class="left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum illum laboriosam voluptatem eligendi doloribus ducimus, quod magnam rem deleniti, obcaecati. Nostrum aliquid, ducimus quibusdam reiciendis, quasi cumque, maiores vero fugiat dolores accusantium praesentium eaque voluptatum perferendis porro! A quam facilis, nam quia quis sed doloribus quibusdam nemo possimus aliquid esse illo facere enim totam eveniet voluptas aspernatur accusamus odio hic error nostrum dicta molestias suscipit reprehenderit. Ipsum necessitatibus similique porro nulla, optio, itaque consequuntur atque et! Assumenda, est quisquam error, alias sed cum amet eligendi mollitia. Rem obcaecati repudiandae quasi reprehenderit corporis nulla autem ab sit minima doloribus placeat, provident debitis nobis dolore beatae id officia facere sunt nam magni, nostrum ratione cum! Maxime porro placeat consectetur iure quod non.</p>
-	<h2>Это тоже подзаголовок</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa obcaecati nulla nihil excepturi ab reiciendis quisquam, sequi nam harum, assumenda eaque, architecto modi ducimus nemo praesentium cum. Minima placeat quasi, culpa ipsum, libero nulla expedita dolores saepe ducimus!<img src="images/img_kovka_5.jpg" class="right">Incidunt ea, ipsa laudantium excepturi corporis laborum. At repellat a voluptatum. Qui fugiat placeat esse culpa vitae vel dolore blanditiis tempore, cumque dolores nisi reiciendis voluptates dignissimos ipsa. Tenetur aliquid, magni quaerat corporis enim, explicabo molestiae maiores vel libero in provident culpa! Laudantium animi delectus voluptatibus laborum deserunt mollitia quod, ipsam maxime libero quo ex suscipit veritatis nobis numquam vitae dolorum commodi totam harum maiores corporis perspiciatis sit labore omnis fugiat. Beatae error tempore aut dolores ratione, nulla nam quis, minus, pariatur illum unde. Illo provident sunt quis fuga aliquam accusantium qui labore et, non quam dolor hic excepturi expedita, enim, eveniet ipsum eaque obcaecati aperiam. Neque facere autem necessitatibus aut, accusamus laboriosam ipsa perspiciatis aliquid nobis explicabo impedit quo nesciunt amet, dolores! Dolores harum natus inventore, itaque, nisi quod ad dolor, distinctio nulla similique dolorem corporis. Ad odio, distinctio obcaecati mollitia corporis facere ullam nobis quo numquam, assumenda voluptatibus vitae ipsum aspernatur eligendi modi, eos quam inventore hic praesentium. Enim, nisi?</p>
 
+	<p><img src="images/img_kovka_4.jpg" class="left">
+		Мы хотим сделать работу с нами удобной, поэтому побеспокоились о доставке за вас,
+		чтобы врезультате работы вы получили желаемый результат "под ключ".
+		<ul style="margin-left: 350px">
+		<li>При заказе от 50 т.р. доставка по Москве и области производится  <u>бесплатно</u>.
+		<li>При заказе менее 50 т.р. стоимость доставки от 200р. за каждые 10 км от производства.
+		<li>Доставка негабаритных грузов, а также доставка грузов за пределы Московской области
+		обсуждается индивидуально.
+		</ul>
+	</p>
 </div>
