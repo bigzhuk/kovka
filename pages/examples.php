@@ -36,94 +36,57 @@
 </style>
 
 <?php 
+function get_photo_folders() {
+	return array(
+		'balkon' => 'Балконы',
+		'besedka' => 'Беседки',
+		'lestnica' => 'Лестницы',
+		'mangal' => 'Мангалы',
+		'mebel' => 'Мебель и интерьер',
+		'mostik' => 'Мостики',
+		'naves' => 'Навесы',
+		'ogradka' => 'Оргадки',
+		'reshetka' => 'Решётки',
+		'urna' => 'Урны',
+		'vorota' => 'Ворота',
+		'zabor' => 'Заборы'
+	);
+}
 
-	$folder ['title'] = 'Балконы';
-	$folder ['folder'] = 'balkon';
-	$folder ['price'] = '15 000';
-	$folders[] = $folder;
+function draw_photo_table($folder, $title) {
+	$out = '
+	<h2>'.$title.'</h2>
+	<table class="mini_gallery" cellspacing="10">
+			<tbody>
+				<tr class="parent-container">'
+					.draw_photo_tr($folder).'
+				</tr>
+			</tbody>
+	</table>';
+	return $out;
+}
 
-	$folder ['title'] = 'Беседки';
-	$folder ['folder'] = 'besedka';
-	$folder ['price'] = '15 000';
-	$folders[] = $folder;
-
-	$folder ['title'] = 'Лестницы';
-	$folder ['folder'] = 'lestnica';
-	$folder ['price'] = '15 000';
-	$folders[] = $folder;
-
-	$folder ['title'] = 'Мангалы';
-	$folder ['folder'] = 'mangal';
-	$folder ['price'] = '15 000';
-	$folders[] = $folder;
-
-	$folder ['title'] = 'Мебель и интерьер';
-	$folder ['folder'] = 'mebel';
-	$folder ['price'] = '15 000';
-	$folders[] = $folder;
-
-	$folder ['title'] = 'Мостики';
-	$folder ['folder'] = 'mostik';
-	$folder ['price'] = '15 000';
-	$folders[] = $folder;
-
-	$folder ['title'] = 'Навесы';
-	$folder ['folder'] = 'naves';
-	$folder ['price'] = '15 000';
-	$folders[] = $folder;
-
-	$folder ['title'] = 'Оргадки';
-	$folder ['folder'] = 'ogradka';
-	$folder ['price'] = '15 000';
-	$folders[] = $folder;
-
-	$folder ['title'] = 'Решётки';
-	$folder ['folder'] = 'reshetka';
-	$folder ['price'] = '15 000';
-	$folders[] = $folder;
-
-	$folder ['title'] = 'Урны';
-	$folder ['folder'] = 'urna';
-	$folder ['price'] = '15 000';
-	$folders[] = $folder;
-
-	$folder ['title'] = 'Ворота';
-	$folder ['folder'] = 'vorota';
-	$folder ['price'] = '15 000';
-	$folders[] = $folder;
-
-	$folder ['title'] = 'Заборы';
-	$folder ['folder'] = 'zabor';
-	$folder ['price'] = '15 000';
-	$folders[] = $folder;
-
+function draw_photo_tr($folder) {
+	$out = '';
+	for ($i=1; $i <= 10; $i++) {
+		$i = $i < 10 ? '0'.$i : $i;
+		if(is_file('images/photo/'.$folder.'/'.$i.'.jpg')) {
+			$out.= '<td style="background-image: url(\'images/photo/'.$folder.'/'.$i.'.jpg\')"
+			href="images/photo_big/'.$folder.'/'.$i.'.jpg"></td>';
+		}
+	}
+	return $out;
+}
 ?>
 
 <h1>Примеры работ</h1>
 <div class="container">
-
-
-	<?php foreach ($folders as $key => $folder) { ?>
-
-		<h2><?php echo $folder['title']; ?></h2>
-
-		<table class="mini_gallery" cellspacing="10">
-			<tbody>
-			<tr class="parent-container">
-				<?php for ($i=1; $i <= 10; $i++) { ?>
-				<?php if ($i<10){$i='0'.$i;} ?>
-					<?php if(is_file('images/photo/'.$folder['folder'].'/'.$i.'.jpg')){ ?>
-						<td style="background-image: url('images/photo/<?php echo $folder['folder']; ?>/<?php echo $i; ?>.jpg');" href="images/photo_big/<?php echo $folder['folder']; ?>/<?php echo $i; ?>.jpg"></td>
-					<? } ?>
-				<? } ?>
-			</tr>
-			</tbody>
-		</table>
-
-		<div style="text-align: center; margin-top: -25px; margin-bottom: 10px;" class="digit">от <?php echo $folder['price']; ?> руб</div>
-
-	<?php } ?>
-
+	<?php
+	$folders = get_photo_folders();
+	foreach ($folders as $folder => $title) {
+		echo draw_photo_table($folder, $title);
+	}
+	?>
 </div>
 
 <script>
