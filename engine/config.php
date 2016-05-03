@@ -17,9 +17,9 @@
 	
 	# Параметры базы данных
 	$db_hostname = 'localhost';
-	$db_username = 'asfaltkroshka';
-	$db_password = 'axRRtEmu8nvrBKLD';
-	$db_database = 'asfaltkroshka';
+	$db_username = 'kovka';
+	$db_password = '6V9vFW28Fj8TsDns';
+	$db_database = 'kovka';
 	//include($GLOBALS['path'].'/engine/mysql.php');
 	include('mysql.php');
 	# Класс для работы с БД
