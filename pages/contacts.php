@@ -19,7 +19,7 @@
 </p>
 	<center>
 		<div id="map_2" style="width: 800px; height: 720px;">
-			<script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=Ng86sVakWqm2peB6kiAyGdSzUe0-NVUA&width=800&height=720&lang=ru_RU&sourceType=constructor"></script>
+			<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=RNdvmzGTnkScBv8hNZW-1oFRRXKR7agM&width=800&height=720&lang=ru_RU&sourceType=constructor&scroll=true"></script>
 		</div>
 	</center>
 </div>

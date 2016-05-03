@@ -11,7 +11,7 @@
 	</div>
 
 	<div id="map" class="popup" style="width: 800px; margin-left: -400px; top: 10%;">
-		<script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=Ng86sVakWqm2peB6kiAyGdSzUe0-NVUA&width=800&height=720&lang=ru_RU&sourceType=constructor"></script>
+		<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=RNdvmzGTnkScBv8hNZW-1oFRRXKR7agM&width=800&height=720&lang=ru_RU&sourceType=constructor&scroll=true"></script>
 	</div>
 	
 	<table id="header_top">
@@ -27,8 +27,8 @@
 				</td>
 				<td><a href="/" id="logo"></a></td>
 				<td id="mails">
-					info@asfaltkroshka.com<br>
-					<a onclick="showMap();">г.Пушкино, ул Заводская, 9</a>
+					sus-stroy@mail.ru<br>
+					<a onclick="showMap();">п. Лесной, ул. Мичурина, д. 11</a>
 				</td>
 			</tr>
 		</tbody>

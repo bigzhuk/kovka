@@ -1,6 +1,6 @@
 <?php 
 
-	// $_SERVER['REQUEST_URI'] = str_replace('/asfaltkroshka', '', $_SERVER['REQUEST_URI']);
+	// $_SERVER['REQUEST_URI'] = str_replace('/kovka', '', $_SERVER['REQUEST_URI']);
 
 
 	$redirect = '';
