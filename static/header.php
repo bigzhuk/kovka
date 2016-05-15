@@ -25,7 +25,7 @@
 					<!-- @TODO Указать время, когда принимаются звонки! Сделать форму - заказ обратного звонка. Как на dadget.ru. -->
 					<!-- (Использовать inputmask для номера.) -->
 				</td>
-				<td><a href="/" id="logo"></a></td>
+				<td><a href="/" id="logo"><div style="padding-top: 55px;">Студия художественной ковки</div></a></td>
 				<td id="mails">
 					sus-stroy@mail.ru<br>
 					<a onclick="showMap();">п. Лесной, ул. Мичурина, д. 11</a>
