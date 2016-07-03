@@ -8,14 +8,22 @@ use PDOException;
 class DB {
     private static $instance = null;
 
-    private $host = 'localhost';
-    private $dbname = 'esks';
-    private $user = 'root';
-    private $password = '';
+    private $host = 'mysql87.1gb.ru';
+    private $dbname = 'gb_x_sus_s5d1';
+    private $user = 'gb_x_sus_s5d1';
+    private $password = 'ddf041bcops';
     private $charset = 'UTF8';
 
 
-    private function __construct() {}
+    private function __construct() {
+        if ($_SERVER['HTTP_HOST'] == 'kovka.dev') {
+             $this->host = 'localhost';
+             $this->dbname = 'esks';
+             $this->user = 'root';
+             $this->password = '';
+             $this->charset = 'UTF8';
+        }
+    }
     private function __clone() {}
 
     public function getPDO() {
