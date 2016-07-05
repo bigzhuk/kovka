@@ -1,4 +1,11 @@
-<?php include('engine/ajax.php'); ?>	
+<?php include('engine/ajax.php'); ?>
+<?php
+class App {
+	public static $phones = [
+		'+7(499)899-78-87','+7(926)300-29-09',
+	];
+}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
