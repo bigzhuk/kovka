@@ -27,7 +27,7 @@
 				</td>
 				<td><a href="/" id="logo"><div style="padding-top: 55px;">Студия художественной ковки</div></a></td>
 				<td id="mails">
-					sus-stroy@mail.ru<br>
+					<?= App::$email?><br>
 					<a onclick="showMap();">п. Лесной, ул. Мичурина, д. 11</a>
 				</td>
 			</tr>

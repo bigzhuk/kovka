@@ -1,9 +1,11 @@
 <?php include('engine/ajax.php'); ?>
 <?php
 class App {
-	public static $phones = [
+	public static $phones = array(
 		'+7(499)899-78-87','+7(926)300-29-09',
-	];
+	);
+	public static $email = 'sus-stroy@mail.ru';
+
 }
 ?>
 <!DOCTYPE html>
