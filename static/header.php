@@ -3,8 +3,8 @@
 	<div id="recall_form" class="popup">
 		<p style="color:white; text-align: left">
 		Мы вам перезвоним.:) Ежедневно с 10:00 до 20:00</p>
-		<input id="recall_name" type="text" value="Имя"><br>
-		<input id="recall_phone" type="text" value="Телефон"><br>
+		<span style="color: white">Имя:</span> <input id="recall_name"  name="name" type="text" ><br>
+		<span style="color: white">Тел.:</span> <input id="recall_phone" name="phone" type="text" value="Телефон"><br>
 		<input id="recall_btn" type="button" value="Отправить" onclick="recall();">
 	</div>
 
@@ -77,28 +77,7 @@
 
 <script>
 	$(document).ready(function() {
-
-		$('#recall_name').on('focus', function () {
-			if($(this).val() == 'Имя') {
-				$(this).val('');
-			}
-		});
-		$('#recall_name').on('focusout', function () {
-			if($(this).val() == '') {
-				$(this).val('Имя');
-			}
-		});
-
-		$('#recall_phone').on('focus', function () {
-			if($(this).val() == 'Телефон') {
-				$(this).val('');
-			}
-		});
-		$('#recall_phone').on('focusout', function () {
-			if($(this).val() == '') {
-				$(this).val('Телефон');
-			}
-		});
+		$('#recall_phone').mask('8 (999) 999-9999',{placeholder:"×"});
 	});
 
 	function hidePopup(){
@@ -114,8 +93,8 @@
 	}
 
 	function recall(){
-		var phone = 'phone';
-		var name = 'name';
+		var phone = $('#recall_phone').val();
+		var name = $('#recall_name').val();
 
 		$('#recall_btn').prop('disabled', 'disabled');
 		$.ajax({

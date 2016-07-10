@@ -63,7 +63,7 @@ class SendMailSmtpClass {
 
         $headers = "MIME-Version: 1.0\r\n";
         $headers .= "Content-type: text/html; charset=utf-8\r\n"; // кодировка письма
-        $headers .= "From: Dadget Service <design@spartak.ru>\r\n"; // от кого письмо
+        $headers .= "From: sus-stroy.ru <robot@sus-stroy.ru>\r\n"; // от кого письмо
 
         $contentMail .= $headers . "\r\n";
         $contentMail .= $message . "\r\n";
