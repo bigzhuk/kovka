@@ -33,6 +33,17 @@ class App {
 		<div id="mask" onclick="hidePopup();"></div>
 		<?php include('static/header.php'); ?>	
 		<div id="content">
+			<div style="
+				    width: 40px;
+					height: 40px;
+					position: fixed!important;
+					bottom: 150px;
+					opacity: 0.8;
+					z-index: 100!important;
+					left: 10px;
+					cursor: pointer">
+				<a onclick="show_recall();"><img src="/images/phone.png" /></a>
+			</div>
 			<?php include('engine/redirect.php'); ?>
 		</div>
 		<div id="wrapper_push"></div>

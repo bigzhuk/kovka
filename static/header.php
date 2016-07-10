@@ -1,13 +1,15 @@
 <div id="header">
 
 	<div id="recall_form" class="popup">
-		<input type="text" value="Имя"><br>
-		<input type="text" value="Телефон"><br>
+		<p style="color:white; text-align: left">
+		Мы вам перезвоним.:) Ежедневно с 10:00 до 20:00</p>
+		<input id="recall_name" type="text" value="Имя"><br>
+		<input id="recall_phone" type="text" value="Телефон"><br>
 		<input id="recall_btn" type="button" value="Отправить" onclick="recall();">
 	</div>
 
 	<div id="recall_success" class="popup">
-		В ближейшее время вам перезвонят!
+		<p style="color: white">Спасибо. В ближайшее время вам перезвонят!</p>
 	</div>
 
 	<div id="map" class="popup" style="width: 800px; margin-left: -400px; top: 10%;">
@@ -75,6 +77,28 @@
 
 <script>
 	$(document).ready(function() {
+
+		$('#recall_name').on('focus', function () {
+			if($(this).val() == 'Имя') {
+				$(this).val('');
+			}
+		});
+		$('#recall_name').on('focusout', function () {
+			if($(this).val() == '') {
+				$(this).val('Имя');
+			}
+		});
+
+		$('#recall_phone').on('focus', function () {
+			if($(this).val() == 'Телефон') {
+				$(this).val('');
+			}
+		});
+		$('#recall_phone').on('focusout', function () {
+			if($(this).val() == '') {
+				$(this).val('Телефон');
+			}
+		});
 	});
 
 	function hidePopup(){
