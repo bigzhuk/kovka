@@ -51,7 +51,8 @@
 				</div> -->
 
 				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'examples') > 0){ echo ' active';} ?>" href="examples">Примеры работ</a>
+					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'examples') > 0){ echo ' active';} ?>" href="examples">Наши работы</a>
+					<a class="sub_menu_link" style="display: none" href="navesy">Навесы</a>
 				</div>
 
 				<div class="menu_section">

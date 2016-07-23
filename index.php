@@ -16,8 +16,7 @@ class App {
 	<meta charset="UTF-8">
 	<title>«Сус Строй» — студия художественной ковки</title>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-	<script src="js/script.js"></script>
+	<script type="text/javascript" src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
 
 	<link rel="stylesheet/less" href="/style/style.less?q=<?php echo rand(1, 9999); ?>">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
@@ -43,7 +42,7 @@ class App {
 					z-index: 100!important;
 					left: 10px;
 					cursor: pointer">
-				<a onclick="show_recall();"><img src="/images/phone.png" /></a>
+				<a onclick="show_recall();"><img id="phone_img" src="/images/phone.png" /></a>
 			</div>
 			<?php include('engine/redirect.php'); ?>
 		</div>
