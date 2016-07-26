@@ -16,24 +16,20 @@
 </form>
 
 <?php
-if (isset($_POST['go'])) {
-		$digit = $_POST['digit'];
-		if (empty($digit)) {
-			echo 'поле надо заполнить';
-			return;
-		}
-		if (!is_numeric($digit)) {
-			echo 'вы ввели не цифру';
-			return;
-		}
-		$len = (strlen($digit));
-		$sum = 0;
-		for ($i=0; $i<$len; $i++) {
-			$sum += $digit[$i];
-		}
-
-		echo 'Сумма цифр введенного числа: '.$sum;
+class a {
+	public static function aa() {
+		return 1;
+	}
 }
+class b extends a {
+	public static function aa() {
+		return 5;
+	}
+}
+
+$b = new b;
+echo $b->aa();
+
 ?>
 
 </body>
