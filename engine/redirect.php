@@ -13,7 +13,9 @@
 		}
 	}
 
-	if ($redirect !== '' && $redirect !== '/?_ym_debug=1'){
+	$redirect = strstr($redirect, '?', true);
+
+	if ($redirect !== '') {
 		if (file_exists('pages'.$redirect.'.php')){
 			include 'pages'.$redirect.'.php';
 		} else if (file_exists('pages'.$redirect.'/index.php')){
