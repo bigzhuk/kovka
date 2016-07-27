@@ -13,9 +13,10 @@
 		}
 	}
 
-	$redirect = strstr($redirect, '?', true);
+	$redirect = strstr($redirect, '?', true) ?
+		strstr($redirect, '?', true) : $redirect;
 
-	if ($redirect !== '') {
+	if ($redirect != '') {
 		if (file_exists('pages'.$redirect.'.php')){
 			include 'pages'.$redirect.'.php';
 		} else if (file_exists('pages'.$redirect.'/index.php')){

@@ -29,7 +29,7 @@
 	<!-- /Yandex.Metrika counter -->
 	<div id="recall_form" class="popup">
 		<p style="color:white; text-align: left">
-		Мы вам перезвоним.:) Ежедневно с 10:00 до 20:00</p>
+		<?= App::$phones[0] ?> или оставьте ваш телефон и мы перезвоним.:) Ежедневно с 10:00 до 20:00</p>
 		<span style="color: white">Имя:</span> <input id="recall_name"  name="name" type="text" ><br>
 		<span style="color: white">Тел.:</span> <input id="recall_phone" name="phone" type="text" value="Телефон"><br>
 		<input id="recall_btn" type="button" value="Отправить" onclick="recall();">
