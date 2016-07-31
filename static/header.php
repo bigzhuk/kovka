@@ -50,7 +50,8 @@
 
 					<?= App::$phones[0]?><br>
 					<?= App::$phones[1]?><br>
-					<a id="show_recall_btn" onclick="show_recall();">Обратный звонок</a>
+
+					<a id="show_recall_btn" onclick="show_recall();">10:00-20:00 без выходных</a>
 					<!-- @TODO Указать время, когда принимаются звонки! Сделать форму - заказ обратного звонка. Как на dadget.ru. -->
 					<!-- (Использовать inputmask для номера.) -->
 				</td>
