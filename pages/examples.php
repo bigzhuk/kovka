@@ -35,56 +35,13 @@
 	}
 </style>
 
-<?php 
-function get_photo_folders() {
-	return array(
-		'balkon' => 'Балконы',
-		'besedka' => 'Беседки',
-		'lestnica' => 'Лестницы',
-		'mangal' => 'Мангалы',
-		'mebel' => 'Мебель и интерьер',
-		'mostik' => 'Мостики',
-		'naves' => 'Навесы',
-		'ogradka' => 'Оргадки',
-		'reshetka' => 'Решётки',
-		'urna' => 'Урны',
-		'vorota' => 'Ворота',
-		'zabor' => 'Заборы'
-	);
-}
-
-function draw_photo_table($folder, $title) {
-	$out = '
-	<h2>'.$title.'</h2>
-	<table class="mini_gallery" cellspacing="10">
-			<tbody>
-				<tr class="parent-container">'
-					.draw_photo_tr($folder).'
-				</tr>
-			</tbody>
-	</table>';
-	return $out;
-}
-
-function draw_photo_tr($folder) {
-	$out = '';
-	for ($i=1; $i <= 10; $i++) {
-		$i = $i < 10 ? '0'.$i : $i;
-		if(is_file('images/photo/'.$folder.'/'.$i.'.jpg')) {
-			$out.= '<td style="background-image: url(\'images/photo/'.$folder.'/'.$i.'.jpg\')"
-			href="images/photo_big/'.$folder.'/'.$i.'.jpg"></td>';
-		}
-	}
-	return $out;
-}
-?>
 
 <h1>Примеры работ</h1>
 <div class="container">
 	<?php
-	$folders = get_photo_folders();
+	$folders = Gallery::get_photo_folders();
 	foreach ($folders as $folder => $title) {
-		echo draw_photo_table($folder, $title);
+		echo Gallery::draw_photo_table($folder, $title);
 	}
 	?>
 </div>

@@ -2,7 +2,14 @@
 <h1>Навесы из поликарбоната</h1>
 
 <div class="container">
-	<img src="images/navesy_big/navesi_iz_polikorbonata.jpg">
+	<img src="images/navesy_big/navesi_iz_polikorbonata.jpg"><br/><br/>
+	<h2>Цены на навесы из поликарбоната</h2>
+	<p>Цены на навесы в нашей компании начинаются <span style="color: #C42034; font-weight: bold">от 1800</span> р за м².
+		До конца лета действует <span style="color: #C42034; font-weight: bold">Акция -</span> cкидка 10% на изготовление
+		любого навеса из поликарбоната.
+		Позвоните сейчас и убедитесь: наши цены ниже, чем у конкурентов. Держать низкие цены нам позволяет
+		наличие собственного производства и большого объем заказов. </p>
+	<h2>Виды навесов</h2>
 	<p>Поликарбонат – современный материал, вобравший в себя преимущества стекла
 		(прозрачность, визуальная легкость, высокая светопроницаемость), но не обладающий его недостатками,
 		главные из которых - хрупкость и большой вес.  Изготовление навесов из этого материала позволило получить практичную
@@ -86,6 +93,67 @@
 		заслужил всеобщее признание.
 		Именно этот материал выбирает большинство наших клиентов, заказывающих различные навесы и козырьки.
 		<div align="center"><div class="button" onclick="show_recall();" >Заказать</div></div>
-	</p>.
+	</p>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+	<style>
+		.mini_gallery{
+			/*border-collapse: collapse;*/
+			height: 200px;
+			max-width: 100% !important;
+			margin-bottom: 20px;
+			margin-left: auto;
+			margin-right: auto;
+			/*width: 100%;	*/
+			/*cellspacing: 10px;*/
+		}
+		.mini_gallery>tbody>tr>td{
+			max-width: 200px !important;
+			box-shadow: 0 0 5px rgba(0,0,0,.33);
+			border-radius: 3px;
+			transition: width .5s, filter .5s;
+			overflow: hidden;
+			/*filter: grayscale(50%);*/
+			background-position: center center;
+			background-repeat: no-repeat;
+			width: 70px;
+			/*min-width: 50px;*/
+		}
+		.mini_gallery>tbody>tr>td:hover{
+			width: 200px !important;
+			cursor: pointer;
+			/*filter: grayscale(0%);*/
+			/*min-width: 190px;*/
+		}
+		.full{
+			/*width: 250px !important;	*/
+		}
+	</style>
+
+
+		<?php
+		$folders = array('naves' => 'Фото наших работ');
+		foreach ($folders as $folder => $title) {
+			echo Gallery::draw_photo_table($folder, $title, 14);
+		}
+		?>
+
+
+	<script>
+		$(document).ready(function() {
+			$('.parent-container').each(function(index, el) {
+				$(el).magnificPopup({
+					delegate: 'td', // child items selector, by clicking on it popup will open
+					type: 'image',
+					gallery: {
+						enabled: true
+					},
+				});
+			});
+			// $('.parent-container')
+		});
+	</script>
 
 </div>
