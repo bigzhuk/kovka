@@ -18,19 +18,19 @@
 	<div>
 		<div style="float: left;">
 			<img src="images/navesy_small/naves_odnoskatniy.jpg" style="width: 250px; height: 125px;  margin-left: 15px; border-radius: 3px;">
-			<div align="center">Односкатные. <span style="color: #C42034">От 2400 за м²</span></div>
+			<div align="center">Односкатные. <span style="color: #C42034">От 1800 р за м²</span></div>
 		</div>
 		<div style="float: left;">
 			<img src="images/navesy_small/naves_dvuskatniy.jpg" style="width: 250px; height: 125px;  margin-left: 15px; border-radius: 3px;">
-			<div align="center">Двускатные. <span style="color: #C42034">От 2500 за м²</span></div>
+			<div align="center">Двускатные. <span style="color: #C42034">От 2000 р за м²</span></div>
 		</div>
 		<div style="float: left;">
 			<img src="images/navesy_small/naves_arochniy.jpg" style="width: 250px; height: 125px;  margin-left: 15px; border-radius: 3px;">
-			<div align="center">Арочные. <span style="color: #C42034">От 2500 за м²</span></div>
+			<div align="center">Арочные. <span style="color: #C42034">От 2150 р за м²</span></div>
 		</div>
 		<div style="float: left;">
 			<img src="images/navesy_small/naves_kovanniy.jpg" style="width: 250px; height: 125px;  margin-left: 15px; border-radius: 3px;">
-			<div align="center">Кованные. <span style="color: #C42034">От 4500 за м²</span></div>
+			<div align="center">Кованные. <span style="color: #C42034">От 4000 р за м²</span></div>
 		</div>
 	</div>
 	<div style="clear: both"></div>
