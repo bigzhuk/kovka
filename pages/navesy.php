@@ -4,7 +4,7 @@
 <div class="container">
 	<img src="images/navesy_big/navesi_iz_polikorbonata.jpg"><br/><br/>
 	<h2>Цены на навесы из поликарбоната</h2>
-	<p>Цены на навесы в нашей компании начинаются <span style="color: #C42034; font-weight: bold">от 1800</span> р за м².
+	<p><a href="/price_list">Цены на навесы</a> в нашей компании начинаются <span style="color: #C42034; font-weight: bold">от 1800</span> р за м².
 		До конца лета действует <span style="color: #C42034; font-weight: bold">Акция -</span> cкидка 10% на изготовление
 		любого навеса из поликарбоната.
 		Позвоните сейчас и убедитесь: наши цены ниже, чем у конкурентов. Держать низкие цены нам позволяет

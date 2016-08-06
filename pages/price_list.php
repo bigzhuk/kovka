@@ -12,6 +12,31 @@
 				</tr>
 			</thead>
 			<tbody>
+				<tr><td colspan="100%" class="subhead">Навесы из поликарбоната</td></tr>
+				<tr>
+					<td>1</td>
+					<td>Односкатные</td>
+					<td>м²</td>
+					<td>1800</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Двускатные</td>
+					<td>м²</td>
+					<td>2000</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Арочные</td>
+					<td>м²</td>
+					<td>2150</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Кованные</td>
+					<td>м²</td>
+					<td>4000</td>
+				</tr>
 				<tr><td colspan="100%" class="subhead">Художественная ковка</td></tr>
 				<tr>
 					<td>1</td>
