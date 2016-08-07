@@ -79,10 +79,10 @@
 				</div> -->
 
 				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'examples') > 0){ echo ' active';} ?>" href="">Каталог</a>
+					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'examples') > 0){ echo ' active';} ?>" href="">Каталог продукции</a>
 					<a class="sub_menu_link" style="display: none" href="navesy">Навесы</a>
 					<a class="sub_menu_link" style="display: none" href="zabory">Заборы</a>
-					<a class="sub_menu_link" style="display: none" href="lestnicy">Лестницы</a>
+					<a class="sub_menu_link" style="display: none" href="lestnicy">Перила, лестницы</a>
 				</div>
 				<div class="menu_section">
 					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'examples') > 0){ echo ' active';} ?>" href="examples">Фотогалерея</a>
