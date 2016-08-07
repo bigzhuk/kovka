@@ -129,30 +129,17 @@ code {
 
         <ul class="slides">
 
-            <a class="slide" href="">
-            <!-- <div>Грузоперевозки: любые грузы, любые расстояния</div> -->
-            <img class="main_banner_item" src="images/slider_1.jpg" href="">
+            <a class="slide" href="/navesy">
+            <img class="main_banner_item" src="images/slider_1.jpg">
             </a>
 
-            <a class="slide" href="">
-            <!-- <div>Переезды любой сложности: от квартиры до склада</div> -->
+            <a class="slide" href="/zabory">
             <img class="main_banner_item" src="images/slider_2.jpg">
             </a>
 
-            <a class="slide" href="">
-            <!-- <div>Малогабаритный груз: оперативная доставка от двери до двери</div> -->
-            <img class="main_banner_item" src="images/slider_3.jpg" href="">
+            <a class="slide" href="/lestnicy">
+            <img class="main_banner_item" src="images/slider_3.jpg">
             </a>
-
-           <!--  <a class="slide" href="">
-            <div>Логистика под ключ: готовое решение для вашей компании</div>
-            <img class="main_banner_item" src="images/slider_4.png" href="">
-            </a> -->
-
-           <!--  <a class="slide" href="?page=service#tab_5">
-            <div>Негабаритный груз: профессиональный подход к нестандартным задачам</div>
-            <img class="main_banner_item" src="images/main_banner_5.jpg" href="">
-            </a> -->
 
         </ul>
     </div>
