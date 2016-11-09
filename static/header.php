@@ -4,11 +4,12 @@
 		(function (d, w, c) {
 			(w[c] = w[c] || []).push(function() {
 				try {
-					w.yaCounter38661495 = new Ya.Metrika({
-						id:38661495,
+					w.yaCounter40774729 = new Ya.Metrika({
+						id:40774729,
 						clickmap:true,
 						trackLinks:true,
-						accurateTrackBounce:true
+						accurateTrackBounce:true,
+						webvisor:true
 					});
 				} catch(e) { }
 			});
@@ -25,8 +26,9 @@
 			} else { f(); }
 		})(document, window, "yandex_metrika_callbacks");
 	</script>
-	<noscript><div><img src="https://mc.yandex.ru/watch/38661495" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<noscript><div><img src="https://mc.yandex.ru/watch/40774729" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 	<!-- /Yandex.Metrika counter -->
+	
 	<div id="recall_form" class="popup">
 		<p style="color:white; text-align: left">
 		<?= App::$phones[0] ?> или оставьте ваш телефон и мы перезвоним.:) Ежедневно с 10:00 до 20:00</p>
