@@ -16,10 +16,16 @@
 	// }
 	
 	# Параметры базы данных
-	$db_hostname = 'localhost';
+	/*$db_hostname = 'localhost';
 	$db_username = 'kovka';
 	$db_password = '6V9vFW28Fj8TsDns';
+	$db_database = 'kovka';*/
+	$db_hostname = 'localhost';
+	$db_username = 'root';
+	$db_password = '';
 	$db_database = 'kovka';
+
+
 	//include($GLOBALS['path'].'/engine/mysql.php');
 	include('mysql.php');
 	# Класс для работы с БД

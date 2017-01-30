@@ -158,11 +158,4 @@ class News {
         return substr($text, 0, $length_after_cut).'...';
 
     }
-
-    public static function renderNewsEditLink() {
-        $out = '<a href="http://'.$_SERVER['HTTP_HOST'].'/admin/reklamniy_block.php">Редактировать рекламный блок сайта</a>';
-        return $out;
-    }
-
-
 }

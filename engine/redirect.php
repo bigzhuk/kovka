@@ -16,10 +16,11 @@
 	$redirect = strstr($redirect, '?', true) ?
 		strstr($redirect, '?', true) : $redirect;
 
-	if ($redirect != '') {
-		if (file_exists('pages'.$redirect.'.php')){
+
+	if ($redirect != '' && $redirect != '/') {
+		if (file_exists('pages'.$redirect.'.php')) {
 			include 'pages'.$redirect.'.php';
-		} else if (file_exists('pages'.$redirect.'/index.php')){
+		} else if (file_exists('pages'.$redirect.'/index.php')) {
 			include 'pages'.$redirect.'/index.php';
 		} else {
 			include 'pages/error404.php';
@@ -27,5 +28,6 @@
 	} else {
 		include 'pages/home.php';
 	}
+
 	
 ?>
