@@ -11,10 +11,13 @@ use yii\base\Model;
 class BannerForm extends Model
 {
 
+public $id;
 public $title;
-public $text;
+public $banner_text;
+public $user_id;
 public $date_publish_start;
 public $date_publish_end;
+public $date_update;
 
 
     /**
@@ -23,7 +26,23 @@ public $date_publish_end;
     public function rules()
     {
         return [
-            [['title', 'text', 'date_publish_start', 'date_publish_end'], 'required'],
+            [
+                ['title', 'banner_text', 'date_publish_start', 'date_publish_end'], 'required'
+            ],
         ];
     }
+
+    /**
+     * @return array customized attribute labels
+     */
+    public function attributeLabels()
+    {
+        return [
+            'title' => 'Заголовок',
+            'banner_text' => 'Текст объявления',
+            'date_publish_start' => 'Начало публикации',
+            'date_publish_end' => 'Конец публикации'
+        ];
+    }
+
 }
