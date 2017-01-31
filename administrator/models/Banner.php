@@ -20,7 +20,7 @@ class Banner extends ActiveRecord {
 
     public static function tableName()
     {
-        return '{{banner}}';
+        return 'banner';
     }
 
     public function beforeSave($insert)

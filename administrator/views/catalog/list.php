@@ -8,7 +8,7 @@
 use yii\grid\GridView;
 use yii\helpers\Html;
 
-$this->title = 'Управление каталогом';
+$this->title = 'Управление рекламными блоками';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
@@ -22,12 +22,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => 'id',
             ],
             [
-                'header' => 'Заголовок',
-                'value' => 'title',
+                'header' => 'Название',
+                'value' => 'name',
             ],
             [
-                'header' => 'Текст объявления',
-                'value' => 'banner_text',
+                'header' => 'Описание',
+                'value' => 'description',
+            ],
+            [
+                'header' => 'Показать товар?',
+                'value' => 'is_active',
             ],
             [
                 'class' => 'yii\grid\ActionColumn',

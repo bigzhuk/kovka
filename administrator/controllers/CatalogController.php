@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\models\Banner;
 use app\models\BannerForm;
+use app\models\Catalog;
+use app\models\CatalogForm;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
@@ -13,7 +15,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
-class BannerController extends Controller
+class CatalogController extends Controller
 {
     /**
      * @inheritdoc
@@ -50,26 +52,26 @@ class BannerController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Banner::find()
+            'query' => Catalog::find()
         ]);
         return $this->render('list', ['data_provider' => $dataProvider]);
     }
 
     public function actionUpdate()
     {
-        $form = new BannerForm;
+        $form = new CatalogForm();
         $id = Yii::$app->request->get('id');
         $model = empty($id)
-            ? new Banner()
-            : Banner::findOne(['id' => $id]);
+            ? new Catalog()
+            : Catalog::findOne(['id' => $id]);
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
             if (!is_null($model)) {
-                $model->title = Html::encode($form->title);
-                $model->banner_text = Html::encode($form->banner_text);
-                $model->date_publish_start = strtotime($form->date_publish_start);
-                $model->date_publish_end = strtotime($form->date_publish_end);
+                $model->name = Html::encode($form->name);
+                $model->description = Html::encode($form->description);
+                $model->is_active = strtotime($form->is_active);
+                $model->photo = strtotime($form->photo);
                 $model->save();
-                $this->redirect('index.php?r=banner');
+                $this->redirect('index.php?r=catalog');
             }
         }
 
@@ -80,9 +82,9 @@ class BannerController extends Controller
     {
         $id = Yii::$app->request->get('id');
         if ($id) {
-            Banner::deleteAll(['id' => $id]);
+            Catalog::deleteAll(['id' => $id]);
         }
-        $this->redirect('index.php?r=banner');
+        $this->redirect('index.php?r=catalog');
     }
 
 
