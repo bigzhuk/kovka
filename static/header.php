@@ -72,22 +72,12 @@
 
 			<center>
 
-				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'about') > 0){ echo ' active';} ?>" href="about">О компании</a>
-				</div>
-
 				<!-- <div class="menu_section">
 					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'service') > 0){ echo ' active';} ?>" href="service">Услуги</a>
 				</div> -->
 
 				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'examples') > 0){ echo ' active';} ?>" href="">Каталог продукции</a>
-					<a class="sub_menu_link" style="display: none" href="navesy">Навесы</a>
-					<a class="sub_menu_link" style="display: none" href="zabory">Заборы</a>
-					<a class="sub_menu_link" style="display: none" href="lestnicy">Перила, лестницы</a>
-				</div>
-				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'examples') > 0){ echo ' active';} ?>" href="examples">Фотогалерея</a>
+					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'catalog') > 0){ echo ' active';} ?>" href="catalog">Каталог</a>
 				</div>
 
 				<div class="menu_section">
@@ -100,6 +90,21 @@
 
 				<div class="menu_section">
 					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'contacts') > 0){ echo ' active';} ?>" href="contacts">Контакты</a>
+				</div>
+
+				<div class="menu_section">
+					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'examples') > 0){ echo ' active';} ?>" href="examples">Фотогалерея</a>
+				</div>
+
+				<div class="menu_section">
+					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'examples') > 0){ echo ' active';} ?>" href="">О продукции</a>
+					<a class="sub_menu_link" style="display: none" href="navesy">Навесы</a>
+					<a class="sub_menu_link" style="display: none" href="zabory">Заборы</a>
+					<a class="sub_menu_link" style="display: none" href="lestnicy">Лестницы</a>
+				</div>
+
+				<div class="menu_section">
+					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'about') > 0){ echo ' active';} ?>" href="about">О компании</a>
 				</div>
 
 			</center>

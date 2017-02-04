@@ -14,6 +14,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\web\UploadedFile;
 
 class CatalogController extends Controller
 {
@@ -64,13 +65,26 @@ class CatalogController extends Controller
         $model = empty($id)
             ? new Catalog()
             : Catalog::findOne(['id' => $id]);
+
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
             if (!is_null($model)) {
                 $model->name = Html::encode($form->name);
+                $model->category_id = Html::encode($form->category_id);
+                $model->art = Html::encode($form->art);
+                $model->price = Html::encode($form->price);
                 $model->description = Html::encode($form->description);
-                $model->is_active = strtotime($form->is_active);
-                $model->photo = strtotime($form->photo);
+                $model->is_active = (int)$form->is_active;
+                $form->photo = UploadedFile::getInstances($form, 'photo');
+                if ($form->upload()) {
+                    $photos = [];
+                    foreach($form->photo as $photo) {
+                        $photos[] = $form->getUploadFilePath($photo);
+                    }
+                    $model->photo = implode(',', $photos);
+                }
+
                 $model->save();
+
                 $this->redirect('index.php?r=catalog');
             }
         }

@@ -9,6 +9,9 @@ use yii;
  *
  * @property integer $id
  * @property string $name
+ * @property integer $category_id
+ * @property string $art
+ * @property string $price
  * @property integer $is_active
  * @property string $description
  * @property string $photo
@@ -17,6 +20,19 @@ use yii;
  */
 class Catalog extends \yii\db\ActiveRecord
 {
+
+    public static $categories = [
+        1 => 'Навесы',
+        2 => 'Балконы',
+        3 => 'Беседки',
+        4 => 'Лестницы',
+        5 => 'Перила',
+        6 => 'Ограды',
+        7 => 'Ворота',
+        8 => 'Заборы',
+        9 => 'Мангалы',
+
+    ];
     /**
      * @inheritdoc
      */
@@ -31,7 +47,7 @@ class Catalog extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['is_active', 'description', 'photo'], 'required'],
+            [['is_active', 'description', 'photo', 'art', 'price', 'category_id'], 'required'],
             [['is_active', 'user_id', 'date_update'], 'integer'],
             [['description', 'photo'], 'string'],
             [['name'], 'string', 'max' => 255],
@@ -46,6 +62,9 @@ class Catalog extends \yii\db\ActiveRecord
         return [
             'id' => '№',
             'name' => 'Имя',
+            'art' => 'Артикул',
+            'category_id' => 'Категория',
+            'price' => 'Цена',
             'is_active' => 'Показывать на сайте?',
             'description' => 'Описание',
             'photo' => 'Фотографии',

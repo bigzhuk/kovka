@@ -8,7 +8,7 @@
 use yii\grid\GridView;
 use yii\helpers\Html;
 
-$this->title = 'Управление каталогом';
+$this->title = 'Управление рекламным блоком';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">

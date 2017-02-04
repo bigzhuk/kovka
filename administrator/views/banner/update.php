@@ -10,7 +10,7 @@ use nex\datepicker\DatePicker;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$this->title = 'Редактирование каталога';
+$this->title = 'Редактирование рекламного блока';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-banner">

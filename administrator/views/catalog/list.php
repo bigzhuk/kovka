@@ -8,7 +8,7 @@
 use yii\grid\GridView;
 use yii\helpers\Html;
 
-$this->title = 'Управление рекламными блоками';
+$this->title = 'Управление каталогом';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
@@ -24,6 +24,12 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'header' => 'Название',
                 'value' => 'name',
+            ],
+            [
+                'header' => 'Категория',
+                'value' => function($model) {
+                    return  \app\models\Catalog::$categories[$model->category_id];
+                }
             ],
             [
                 'header' => 'Описание',
