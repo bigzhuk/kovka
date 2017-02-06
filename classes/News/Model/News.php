@@ -8,7 +8,7 @@ use DB\Escape;
 class News {
 
     public function getTableName() {
-        return 'news';
+        return 'banner';
     }
 
     /**

@@ -38,6 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]);
     ?>
-    <?= Html::a('Добавить', ['catalog/update'], ['class'=>'btn btn-primary']);?>
+    <?= Html::a('Добавить', ['banner/update'], ['class'=>'btn btn-primary']);?>
 
 </div>

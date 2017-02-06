@@ -59,6 +59,9 @@ public $date_update;
 
     public function upload()
     {
+        if (empty($this->photo)) {
+            return false;
+        }
         if ($this->validate()) {
             foreach ($this->photo as $file) {
                 $file->saveAs($this->getUploadFilePath($file));

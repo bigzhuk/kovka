@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         $form_fields .= $form->field($model, 'art')->textInput(['value' => $ar_model->art]);
         $form_fields .= $form->field($model, 'price')->textInput(['value' => $ar_model->price]);
         $form_fields .= $form->field($model, 'description')->textarea(['value' => $ar_model->description]);
-        $form_fields .= $form->field($model, 'is_active')->checkbox(['value' => $ar_model->is_active]);
+        $form_fields .= $form->field($model, 'is_active')->checkbox(['value' => $model->is_active]);
         $form_fields .= $form->field($model, 'photo[]')->fileInput(['multiple' => true, 'accept' => 'image/*']);
         $photos = explode(',', $ar_model->photo);
         $max_key = max(array_keys($photos));

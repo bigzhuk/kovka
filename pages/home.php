@@ -3,7 +3,7 @@ require_once('classes/autoload.php');
 
 $new_controller = new News\Controller\News(new \News\Model\News(), new \News\Decorator\BlockKovkaFront());
 $new_rows = $new_controller->getNewsModel()->getAllPublishedNews();
-$ad_text = $new_controller->getNewsDecorator()->renderReklamniyBlock($new_rows);
+$banner = $new_controller->getNewsDecorator()->renderReklamniyBlock($new_rows);
 ?>
 
 <?php include('static/slider.php'); ?>

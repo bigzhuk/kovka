@@ -48,7 +48,7 @@ class Catalog extends \yii\db\ActiveRecord
     {
         return [
             [['is_active', 'description', 'photo', 'art', 'price', 'category_id'], 'required'],
-            [['is_active', 'user_id', 'date_update'], 'integer'],
+            [['user_id', 'date_update'], 'integer'],
             [['description', 'photo'], 'string'],
             [['name'], 'string', 'max' => 255],
         ];

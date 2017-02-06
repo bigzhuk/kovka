@@ -18,7 +18,7 @@ class DB {
     private function __construct() {
         if ($_SERVER['HTTP_HOST'] == 'kovka.dev') {
              $this->host = 'localhost';
-             $this->dbname = 'esks';
+             $this->dbname = 'kovka';
              $this->user = 'root';
              $this->password = '';
              $this->charset = 'UTF8';

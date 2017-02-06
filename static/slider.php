@@ -121,7 +121,7 @@ code {
 
 <div class="slideshow_wrapper"> 
 
-    <div id="over_slider"><?php echo $ad_text; ?></div>
+    <?= $banner ?>
     <div class="slideshow">
 
         <a href="#" class="prev"></a>

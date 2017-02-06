@@ -21,17 +21,26 @@ $this->params['breadcrumbs'][] = $this->title;
         $form_fields = '';
         $form_fields .= $form->field($model, 'title')->textInput(['value' => $ar_model->title]);
         $form_fields .= $form->field($model, 'banner_text')->textarea(['value' => $ar_model->banner_text]);
-        $form_fields .= $form->field($model, 'date_publish_start')->widget(DatePicker::className(), [
-            'language' => 'ru',
-            'clientOptions' => [
-                'format' => 'L',
-            ],
+
+        $form_fields .= $form->field($model, 'date_publish_start')
+            ->widget(DatePicker::className(), [
+                'options' => [
+                    'value' =>  !empty($ar_model->date_publish_end) ? date('d.m.Y', $ar_model->date_publish_start) : null
+                ],
+                'language' => 'ru',
+                'clientOptions' => [
+                    'format' => 'L',
+                ],
         ]);
-        $form_fields .= $fields['date_publish_end'] = $form->field($model, 'date_publish_end')->widget(DatePicker::className(), [
-            'language' => 'ru',
-            'clientOptions' => [
-                'format' => 'L',
-            ],
+        $form_fields .= $form->field($model, 'date_publish_end')
+            ->widget(DatePicker::className(), [
+                'options' => [
+                    'value' =>  !empty($ar_model->date_publish_end) ? date('d.m.Y', $ar_model->date_publish_end) : null
+                ],
+                'language' => 'ru',
+                'clientOptions' => [
+                   'format' => 'L',
+                ],
         ]);
     ?>
 

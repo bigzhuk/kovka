@@ -73,7 +73,7 @@ class CatalogController extends Controller
                 $model->art = Html::encode($form->art);
                 $model->price = Html::encode($form->price);
                 $model->description = Html::encode($form->description);
-                $model->is_active = (int)$form->is_active;
+                $model->is_active = ($form->is_active === 'on') ? 1 : 0;
                 $form->photo = UploadedFile::getInstances($form, 'photo');
                 if ($form->upload()) {
                     $photos = [];
@@ -83,12 +83,14 @@ class CatalogController extends Controller
                     $model->photo = implode(',', $photos);
                 }
 
-                $model->save();
-
+                if (!$model->save()) {
+                    var_dump($model->getErrors());
+                    die;
+                }
                 $this->redirect('index.php?r=catalog');
             }
         }
-
+        
         return $this->render('update', ['model' => $form, 'id' => $id, 'ar_model' => $model]);
     }
 
