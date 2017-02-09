@@ -3,11 +3,30 @@
 namespace Catalog\Model;
 
 use DB\DB;
-use DB\Escape;
 
 
 /** Модель каталога для использование на фронте */
 class Catalog {
+
+    /**
+     * @var array
+     * @see administrator/models/Catalog.php
+     * На админку был поставлен yii2, а на фронте была самописная модель.
+     * Желание ебаться с автолоадом, чтобы их "подружить" - нет. Поэтому если добавляется категория
+     * сюда: self::$categories она должна добавиться и в app\models\Catalog::$categories.
+     */
+    public static $categories = [
+        1 => 'Навесы',
+        2 => 'Балконы',
+        3 => 'Беседки',
+        4 => 'Лестницы',
+        5 => 'Перила',
+        6 => 'Ограды',
+        7 => 'Ворота',
+        8 => 'Заборы',
+        9 => 'Мангалы',
+
+    ];
 
     public function getTableName() {
         return 'catalog';
@@ -32,9 +51,9 @@ class Catalog {
      * а дата конца публикации больше сегодняшнего дня
      * @return array
      */
-    public function getAllPublished() {
+    public function getAllPublished($category_id) {
         $data = array();
-        $query = 'SELECT * FROM '.$this->getTableName().' WHERE is_active = 1';
+        $query = 'SELECT * FROM '.$this->getTableName().' WHERE is_active = 1 AND category_id = '.(int)$category_id;
         $result = DB::i()->getPDO()->query($query);
         if(!$result) {
             return array();

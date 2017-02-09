@@ -37,7 +37,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'header' => 'Показать товар?',
-                'value' => 'is_active',
+                'value' => function($model) {
+                    return $model->is_active ? 'Да' : 'Нет';
+                }
             ],
             [
                 'class' => 'yii\grid\ActionColumn',
