@@ -77,7 +77,7 @@
 				</div> -->
 
 				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'catalog') > 0){ echo ' active';} ?>" href="catalog">Каталог</a>
+					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'catalog') > 0){ echo ' active';} ?>" href="catalog?category_id=1">Каталог</a>
 				</div>
 
 				<div class="menu_section">

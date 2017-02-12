@@ -75,10 +75,10 @@ class CatalogController extends Controller
                 $model->description = Html::encode($form->description);
                 $model->is_active = ($form->is_active === 'on') ? 1 : 0;
                 $form->photo = UploadedFile::getInstances($form, 'photo');
-                if ($form->upload()) {
+                if ($form->upload($model->category_id)) {
                     $photos = [];
                     foreach($form->photo as $photo) {
-                        $photos[] = $form->getUploadFilePath($photo);
+                        $photos[] = $form->getUploadFilePath($photo, $model->category_id);
                     }
                     $model->photo = implode(',', $photos);
                 }

@@ -1,3 +1,38 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<style>
+    .mini_gallery{
+        /*border-collapse: collapse;*/
+        height: 200px;
+        max-width: 100% !important;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        /*width: 100%;	*/
+        /*cellspacing: 10px;*/
+    }
+    .mini_gallery>tbody>tr>td{
+        max-width: 200px !important;
+        box-shadow: 0 0 5px rgba(0,0,0,.33);
+        border-radius: 3px;
+        transition: width .5s, filter .5s;
+        overflow: hidden;
+        /*filter: grayscale(50%);*/
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 70px;
+        /*min-width: 50px;*/
+    }
+    .mini_gallery>tbody>tr>td:hover{
+        width: 200px !important;
+        cursor: pointer;
+        /*filter: grayscale(0%);*/
+        /*min-width: 190px;*/
+    }
+    .full{
+        /*width: 250px !important;	*/
+    }
+</style>
 <h1>Каталог продукции</h1>
 <div class="container">
     <script>
@@ -5,6 +40,16 @@
             $('#categories').on('change', function() {
               var selected_id = ($(this).val());
                 window.location = "http://<?=$_SERVER['HTTP_HOST']?>/catalog?category_id="+selected_id;
+            });
+
+            $('.parent-container').each(function(index, el) {
+                $(el).magnificPopup({
+                    delegate: 'td', // child items selector, by clicking on it popup will open
+                    type: 'image',
+                    gallery: {
+                        enabled: true
+                    },
+                });
             });
         });
     </script>
@@ -21,63 +66,20 @@ if (empty($category_id)) {
 
 require_once('classes/autoload.php');
 
+
+
+
 $model = new \Catalog\Model\Catalog();
 $decorator = new \Catalog\Decorator\Catalog();
-$goods = $model->getAllPublished($category_id);
+$id = isset($_GET['id']) ? (int)$_GET['id'] : null;
+
+if ($id) { // страница конкретного товара
+    $good = $model->getById($id);
+    echo $decorator->renderGoodPage($good, \Catalog\Model\Catalog::$categories);
+} else { // страница каталога (таблица с товарами)
+    $goods = $model->getAllPublished($category_id);
+    echo $decorator->renderCategory(\Catalog\Model\Catalog::$categories, $category_id, $goods);
+}
 
 ?>
-
-<style>
-    .prod_box:hover {
-        -moz-box-shadow: 0 0 3px 1px #D8DCDF;
-        -webkit-box-shadow: 0 0 3px 1px #D8DCDF;
-        box-shadow: 0 0 3px 1px #D8DCDF;
-    }
-    .prod_box:hover {
-        -moz-box-shadow: 0 0 3px 1px #D8DCDF;
-        -webkit-box-shadow: 0 0 3px 1px #D8DCDF;
-        box-shadow: 0 0 3px 1px #D8DCDF;
-    }
-    .prod_box {
-        font-family: Tahoma;
-        border: 1px solid #D8DCDF;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        border-radius: 5px;
-        text-align: center;
-        vertical-align: top;
-        display: inline-block;
-        -webkit-box-flex: 1;
-        -moz-box-flex: 1;
-        -webkit-flex: 1 1 200px;
-        -moz-flex: 1 1 200px;
-        -ms-flex: 1 1 200px;
-        flex: 1 1 200px;
-        min-width: 200px;
-        max-width: 250px;
-        width: 95%;
-        height: 260px;
-        padding: 10px 0;
-        margin: 4px;
-        zoom: 1;
-        cursor: pointer;
-    }
-    .img_box {
-        margin: 10px;
-    }
-    .art {
-        color: darkgrey;
-    }
-    .price {
-        color: darkred;
-        font-weight: bold;
-        font-size: 110%;
-    }
-</style>
-
-<h2><?= \Catalog\Model\Catalog::$categories[$category_id] ?></h2>
-    Выберите категорию: <?= $decorator->renderChooseCategoryList(Catalog\Model\Catalog::$categories); ?>
-<div align="center">
-    <?= $decorator->renderCatalogTable($goods); ?>
-</div>
 </div>

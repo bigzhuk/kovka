@@ -57,14 +57,14 @@ public $date_update;
         ];
     }
 
-    public function upload()
+    public function upload($category_id)
     {
         if (empty($this->photo)) {
             return false;
         }
         if ($this->validate()) {
             foreach ($this->photo as $file) {
-                $file->saveAs($this->getUploadFilePath($file));
+                $file->saveAs($this->getUploadFilePath($file, $category_id));
             }
             return true;
         } else {
@@ -72,8 +72,14 @@ public $date_update;
         }
     }
 
-    public function getUploadFilePath($file) {
-        return '../uploads/' . $file->baseName . '.' . $file->extension;
+    public function getUploadFilePath($file, $category_id) {
+        $category_folder = $this->getCategoryFolderName($category_id);
+        return '../uploads/'.$category_folder.'/'.$file->baseName . '.' . $file->extension;
+    }
+
+    private function getCategoryFolderName($category_id) {
+        require_once('../../classes/Catalog/Model/Catalog.php');
+        return \Catalog\Model\Catalog::getPhotoUploadFolderName($category_id);
     }
 
 }

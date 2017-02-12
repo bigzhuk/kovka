@@ -24,16 +24,37 @@ class Gallery {
 		);
 	}
 
-	public static function draw_photo_table($folder, $title, $count = 10) {
-		$out = '
-	<h2>'.$title.'</h2>
-	<table class="mini_gallery" cellspacing="10">
-			<tbody>
-				<tr class="parent-container">'
-			.self::draw_photo_tr($folder, $count).'
-				</tr>
-			</tbody>
-	</table>';
+	public static function drawProductPhotoTable($photos) {
+		return
+			'<table class="mini_gallery" cellspacing="10" style="float: left">
+					<tbody>
+						<tr class="parent-container">'
+			.self::drawProductPhotoTr($photos).'
+						</tr>
+					</tbody>
+			</table><div style="clear: left"></div>';
+	}
+
+	private static function drawProductPhotoTr($photos) {
+		$out = '';
+		foreach ($photos as $photo) {
+				$out.= '<td style="height: 1px; background-image: url(\''.$photo.'\')" href="'.$photo.'"></td>';
+		}
+		return $out;
+	}
+
+
+	public static function draw_photo_table($folder, $title = '', $count = 10) {
+		$title = $title ? '<h2>'.$title.'</h2>' : '';
+		$out =
+			$title.'
+			<table class="mini_gallery" cellspacing="10">
+					<tbody>
+						<tr class="parent-container">'
+					.self::draw_photo_tr($folder, $count).'
+						</tr>
+					</tbody>
+			</table>';
 		return $out;
 	}
 

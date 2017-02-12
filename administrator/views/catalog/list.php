@@ -28,7 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'header' => 'Категория',
                 'value' => function($model) {
-                    return  \app\models\Catalog::$categories[$model->category_id];
+                    require_once('../../classes/Catalog/Model/Catalog.php');
+                    return \Catalog\Model\Catalog::$categories[$model->category_id];
                 }
             ],
             [

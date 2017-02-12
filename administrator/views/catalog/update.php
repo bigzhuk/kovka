@@ -19,9 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?php
+        require_once('../../classes/Catalog/Model/Catalog.php');
         $form_fields = '';
         $form_fields .= $form->field($model, 'name')->textInput(['value' => $ar_model->name]);
-        $form_fields .= $form->field($model, 'category_id')->dropDownList(Catalog::$categories, ['options' =>[$ar_model->category_id => ['Selected' => true]]]);
+        $form_fields .= $form->field($model, 'category_id')->dropDownList(\Catalog\Model\Catalog::$categories, ['options' =>[$ar_model->category_id => ['Selected' => true]]]);
         $form_fields .= $form->field($model, 'art')->textInput(['value' => $ar_model->art]);
         $form_fields .= $form->field($model, 'price')->textInput(['value' => $ar_model->price]);
         $form_fields .= $form->field($model, 'description')->textarea(['value' => $ar_model->description]);

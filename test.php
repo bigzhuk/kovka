@@ -1,36 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-	<script type="text/javascript" src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
-</head>
-<body>
 <?php
 
-?>
-<form name="test_form" method="post" action="">
-Введите число<input  name="digit" type="text" />
-<input name="go" type="submit" title="Рассчиать">
-</form>
 
-<?php
-class a {
-	public static function aa() {
-		return 1;
-	}
+	$arr =  [
+		1 => 'Навесы',
+		2 => 'Балконы',
+		3 => 'Беседки',
+		4 => 'Лестницы',
+		5 => 'Перила',
+		6 => 'Ограды',
+		7 => 'Ворота',
+		8 => 'Заборы',
+		9 => 'Мангалы',
+
+	];
+
+	$cyr = [
+		'а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п',
+		'р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',
+		'А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П',
+		'Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я'
+	];
+	$lat = [
+		'a','b','v','g','d','e','io','zh','z','i','y','k','l','m','n','o','p',
+		'r','s','t','u','f','h','ts','ch','sh','sht','a','i','y','e','yu','ya',
+		'A','B','V','G','D','E','Io','Zh','Z','I','Y','K','L','M','N','O','P',
+		'R','S','T','U','F','H','Ts','Ch','Sh','Sht','A','I','Y','e','Yu','Ya'
+	];
+foreach ($arr as $textcyr) {
+	echo strtolower(str_replace($cyr, $lat, $textcyr)).'<br>';
 }
-class b extends a {
-	public static function aa() {
-		return 5;
-	}
-}
 
-$b = new b;
-echo $b->aa();
 
-?>
-
-</body>
-</html>
