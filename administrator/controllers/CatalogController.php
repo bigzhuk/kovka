@@ -61,18 +61,27 @@ class CatalogController extends Controller
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
             if (!is_null($model)) {
                 $model->name = Html::encode($form->name);
-                $model->category_id = Html::encode($form->category_id);
+                $model->category_id = (int)$form->category_id;
                 $model->art = Html::encode($form->art);
                 $model->price = Html::encode($form->price);
                 $model->description = Html::encode($form->description);
                 $model->is_active = ($form->is_active === 'on') ? 1 : 0;
                 $form->photo = UploadedFile::getInstances($form, 'photo');
-                if ($form->upload($model->category_id, $model->id)) {
+                if ($model->id) {
+                    $product_id = $model->id;
+                } else {
+                   $max_product_id = Catalog::find()
+                       ->select('id')
+                       ->max('id');
+                   $product_id = $max_product_id ? ++$max_product_id : 1;
+                }
+
+                if ($form->upload($model->category_id, $product_id)) {
                     $photos = [];
                     foreach($form->photo as $photo) {
                         $photos[] = $form->getUploadFilePath(
                             $photo,
-                            $form->getProductFolderName($model->category_id, $model->id)
+                            $form->getProductFolderName($model->category_id, $product_id)
                         );
                     }
                     $model->photo = implode(',', $photos);

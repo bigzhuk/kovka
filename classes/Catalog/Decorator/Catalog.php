@@ -28,11 +28,12 @@ HTML;
         return implode('/', $path);
     }
 
-    private function renderCategoryBlock($category_link, $photo_path) {
+    private function renderCategoryBlock($category_link, $photo_path, $category) {
         return <<<HTML
       <a href="{$category_link}">
       <div class="prod_box"> 
         <div class ="img_box"><img height="200" width="200" src="{$photo_path}"></div>
+         <div><span class="price">{$category}</span></div>
       </div>
       </a>
 HTML;
@@ -65,7 +66,7 @@ HTML;
             $category_link = 'http://'.$_SERVER['HTTP_HOST'].'/catalog?category_id='.$key;
             $photo_path = '../administrator/uploads/'.\Catalog\Model\Catalog::getPhotoUploadFolderName($key).'/main.jpg';
 
-            $category_table .= '<td>'.$this->renderCategoryBlock($category_link, $photo_path).'</td>';
+            $category_table .= '<td>'.$this->renderCategoryBlock($category_link, $photo_path, $category).'</td>';
             if (($key_row_close + 3) === $key || $max_key === $key) {
                 $category_table .= '</tr>';
             }
