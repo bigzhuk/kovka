@@ -26,19 +26,11 @@ class CatalogController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
                 ],
             ],
         ];
@@ -75,10 +67,13 @@ class CatalogController extends Controller
                 $model->description = Html::encode($form->description);
                 $model->is_active = ($form->is_active === 'on') ? 1 : 0;
                 $form->photo = UploadedFile::getInstances($form, 'photo');
-                if ($form->upload($model->category_id)) {
+                if ($form->upload($model->category_id, $model->id)) {
                     $photos = [];
                     foreach($form->photo as $photo) {
-                        $photos[] = $form->getUploadFilePath($photo, $model->category_id);
+                        $photos[] = $form->getUploadFilePath(
+                            $photo,
+                            $form->getProductFolderName($model->category_id, $model->id)
+                        );
                     }
                     $model->photo = implode(',', $photos);
                 }

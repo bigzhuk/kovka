@@ -8,13 +8,31 @@ class Catalog {
 
     private function renderGoodBlock(array $good) {
         $photos = $this->getPhotos($good);
+        $thumb_photo_path = self::getThumbPathFromPhotoPath($photos[0]);
         $good_link = 'http://'.$_SERVER['HTTP_HOST'].'/catalog?category_id='.$good['category_id'].'&id='.$good['id'];
       return <<<HTML
       <a href="{$good_link}">
       <div class="prod_box"> 
-        <div class ="img_box"><img height="200" width="200" src="{$photos[0]}"></div>
+        <div class ="img_box"><img height="200" width="200" src="{$thumb_photo_path}"></div>
         <div><span class="art">{$good['art']}</span> {$good['name']}</div>
         <div><span class="price">{$good['price']}</span> ₽</div>
+      </div>
+      </a>
+HTML;
+    }
+
+    public static function getThumbPathFromPhotoPath($photo_path) {
+        $path = explode('/', $photo_path);
+        $photo_base_name = array_pop($path);
+        $path[] = 'thumbs/'.$photo_base_name;
+        return implode('/', $path);
+    }
+
+    private function renderCategoryBlock($category_link, $photo_path) {
+        return <<<HTML
+      <a href="{$category_link}">
+      <div class="prod_box"> 
+        <div class ="img_box"><img height="200" width="200" src="{$photo_path}"></div>
       </div>
       </a>
 HTML;
@@ -31,6 +49,37 @@ HTML;
         }
         $select .= '</select>';
         return $select;
+    }
+
+    public function renderCategoryTable($categories) {
+        $key_row_close = 0;
+        $max_key = count($categories);
+        $category_table = '
+        <table class="table table-striped table-bordered">
+            <tbody>';
+        foreach ($categories as $key => $category) {
+            if ($key % 4 === 1) {
+                $key_row_close = $key;
+                $category_table .= '<tr>';
+            }
+            $category_link = 'http://'.$_SERVER['HTTP_HOST'].'/catalog?category_id='.$key;
+            $photo_path = '../administrator/uploads/'.\Catalog\Model\Catalog::getPhotoUploadFolderName($key).'/main.jpg';
+
+            $category_table .= '<td>'.$this->renderCategoryBlock($category_link, $photo_path).'</td>';
+            if (($key_row_close + 3) === $key || $max_key === $key) {
+                $category_table .= '</tr>';
+            }
+        }
+        $category_table .= '
+            </tbody>
+        </table>';
+        return $category_table;
+    }
+
+    public function renderCatalog($categories, $title) {
+        return
+            '<h2>'.$title.'</h2>
+            <div align="center">'.$this->renderCategoryTable($categories).'</div>';
     }
 
     private function renderCatalogTable(array $goods) {
@@ -61,12 +110,16 @@ HTML;
     public function renderCategory($categories, $category_id, $goods) {
         return
             '<h2>'.$categories[$category_id].'</h2>
-            <span style="    text-align: center;
+            <div style="padding-bottom: 10px">
+            <span style="text-align: center;
     color: #fff;
     background: #C42034;
-    padding: 5px;
-    border-radius: 3px;">Выберите категорию: '.$this->renderChooseCategoryList($categories).'</span>
-            <div align="center">'.$this->renderCatalogTable($goods).'</div>';
+    padding: 10px;
+    border-radius: 3px;">Выбрать другую категорию: '.$this->renderChooseCategoryList($categories).'</span>
+    </div>
+            <div align="center">'.$this->renderCatalogTable($goods).'
+            <p><a href="/catalog">Вернуться в каталог</a></p>
+            </div>';
     }
 
     public function renderGoodPage($good, $categories) {

@@ -9,10 +9,19 @@ $banner = $new_controller->getNewsDecorator()->renderReklamniyBlock($new_rows);
 <?php include('static/slider.php'); ?>
 
 <div class="container">
+<?php
+	$decorator = new \Catalog\Decorator\Catalog();
+	echo $decorator->renderCatalog(\Catalog\Model\Catalog::$categories, 'Каталог продукции');
+?>
+</div>
+
+<div class="container">
+	<h2>Два слова о нас</h2>
 	<p>Если вы ищете, где можно заказать навес, ворота, лестницу или другое кованное изделие
 	любой сложности - вы на правильном пути. Компания  «СУС-СТРОЙ» выполнит работу качественно и в срок .
 	<a href = "price_list">Наши цены</a> доступны, а <a href = "examples">галлерея выполненных заказов</a>,
-	содержит более 500 примеров, что лишний раз подтверждает наш богатый опыт в сфере изготовления кованных изделий.</p>
+	содержит более 500 примеров, что лишний раз подтверждает наш богатый опыт работы.
+	Подробнее о нас читайте в разделе <a href = about.php>о комании.</a></p>
 	<h2>Наши услуги</h2>
 	<ul>
 		<li>Изготовление навесов из поликарбоната.

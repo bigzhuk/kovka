@@ -37,8 +37,10 @@ class Gallery {
 
 	private static function drawProductPhotoTr($photos) {
 		$out = '';
+
 		foreach ($photos as $photo) {
-				$out.= '<td style="height: 1px; background-image: url(\''.$photo.'\')" href="'.$photo.'"></td>';
+				$thumb = \Catalog\Decorator\Catalog::getThumbPathFromPhotoPath($photo);
+				$out.= '<td style="height: 1px; background-image: url(\''.$thumb.'\')" href="'.$photo.'"></td>';
 		}
 		return $out;
 	}

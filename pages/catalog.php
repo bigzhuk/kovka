@@ -55,30 +55,22 @@
     </script>
 
 <?php
-$category_id = (int)$_GET['category_id'];
-if (empty($category_id)) {
-?>
-    <script>
-         window.location = "http://<?=$_SERVER['HTTP_HOST']?>/catalog?category_id=1";
-    </script>'
-<?php
-}
-
 require_once('classes/autoload.php');
-
-
-
-
+$category_id = !empty($_GET['category_id']) ? (int)$_GET['category_id'] : null;
 $model = new \Catalog\Model\Catalog();
 $decorator = new \Catalog\Decorator\Catalog();
-$id = isset($_GET['id']) ? (int)$_GET['id'] : null;
 
-if ($id) { // страница конкретного товара
-    $good = $model->getById($id);
-    echo $decorator->renderGoodPage($good, \Catalog\Model\Catalog::$categories);
-} else { // страница каталога (таблица с товарами)
-    $goods = $model->getAllPublished($category_id);
-    echo $decorator->renderCategory(\Catalog\Model\Catalog::$categories, $category_id, $goods);
+if ($category_id) {
+    $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
+    if ($id) { // страница конкретного товара
+        $good = $model->getById($id);
+        echo $decorator->renderGoodPage($good, \Catalog\Model\Catalog::$categories);
+    } else { // страница каталога (таблица с товарами)
+        $goods = $model->getAllPublished($category_id);
+        echo $decorator->renderCategory(\Catalog\Model\Catalog::$categories, $category_id, $goods);
+    }
+} else {
+    echo $decorator->renderCatalog(\Catalog\Model\Catalog::$categories, 'Категории каталога');
 }
 
 ?>
