@@ -16,14 +16,19 @@
 	// }
 	
 	# Параметры базы данных
-	/*$db_hostname = 'localhost';
-	$db_username = 'kovka';
-	$db_password = '6V9vFW28Fj8TsDns';
-	$db_database = 'kovka';*/
-	$db_hostname = 'localhost';
-	$db_username = 'root';
-	$db_password = '';
-	$db_database = 'kovka';
+
+
+	if ($_SERVER['HTTP_HOST'] === 'kovka.dev') {
+		$db_hostname = 'localhost';
+		$db_username = 'root';
+		$db_password = '';
+		$db_database = 'kovka';
+	} else {
+		$db_hostname = 'mysql94.1gb.ru';
+		$db_username = 'gb_kovka';
+		$db_password = 'c7a7bdbdps';
+		$db_database = 'gb_kovka';
+	}
 
 
 	//include($GLOBALS['path'].'/engine/mysql.php');
