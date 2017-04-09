@@ -6,16 +6,16 @@ if ($_SERVER['HTTP_HOST'] === 'kovka.dev') {
     $db_password = '';
     $db_database = 'kovka';
 } else {
-    $db_hostname = 'mysql94.1gb.ru';
-    $db_username = 'gb_kovka';
+    $db_hostname = 'p377048.ispmgr.ihc.ru';
+    $db_username = 'p377048_kovka';
     $db_password = 'c7a7bdbdps';
-    $db_database = 'gb_kovka';
+    $db_database = 'p377048_kovka';
 }
 $dsn = 'mysql:host='.$db_hostname.';dbname='.$db_database;
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=kovka',
+    'dsn' => $dsn,
     'username' => $db_username,
     'password' => $db_password,
     'charset' => 'utf8',

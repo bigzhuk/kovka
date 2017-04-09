@@ -8,10 +8,10 @@ use PDOException;
 class DB {
     private static $instance = null;
 
-    private $host = 'mysql87.1gb.ru';
-    private $dbname = 'gb_x_sus_s5d1';
-    private $user = 'gb_x_sus_s5d1';
-    private $password = 'ddf041bcops';
+    private $host = 'p377048.ispmgr.ihc.ru';
+    private $dbname  = 'p377048_kovka';
+    private $user  = 'p377048_kovka';
+    private $password = 'c7a7bdbdps';
     private $charset = 'UTF8';
 
 

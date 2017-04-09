@@ -91,6 +91,7 @@ class Gallery {
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,400italic,700,700italic,300italic,300&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
 </head>
 <body>
+	<script src="js/mobile.js"></script>
 
 	<div id="background"></div>
 

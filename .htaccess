@@ -1,4 +1,6 @@
-php_flag display_errors on 
+AddHandler application/x-httpd-php56 .php
+
+php_flag display_errors on
 php_value error_reporting E_ALL
 
 RewriteEngine on
@@ -6,5 +8,5 @@ RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?/$1 [L]
+RewriteRule ^(.*)$ index.php?/$1&%{QUERY_STRING} [L]
 
