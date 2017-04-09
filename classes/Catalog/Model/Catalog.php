@@ -101,8 +101,8 @@ class Catalog {
     /**
      * @return int
      */
-    public function count() {
-        $query = 'SELECT count(*) as cnt FROM '.$this->getTableName();
+    public function countInCategory($category_id) {
+        $query = 'SELECT count(*) as cnt FROM '.$this->getTableName().' WHERE category_id='.$category_id;
         $result = DB::i()->getPDO()->query($query);
         if (!$result) {
             return 0;

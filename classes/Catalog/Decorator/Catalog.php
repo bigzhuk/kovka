@@ -212,9 +212,10 @@ HTML;
 
     private function getPaginator() {
         $moldel = new \Catalog\Model\Catalog();
-        $all_items_count = $moldel->count();
         $items_on_page_count = $this->getItemsOnPageCount();
         $out = [];
+        $category_id = !empty($_GET['category_id']) ? (int)$_GET['category_id'] : 0;
+        $all_items_count = $category_id ? $moldel->countInCategory($category_id) : $items_on_page_count;
         $cur_page = !empty($_GET['page']) ? (int)$_GET['page'] : 0;
         $page_count = $all_items_count/$items_on_page_count;
         if (!is_int($page_count)) {
