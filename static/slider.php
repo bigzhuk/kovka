@@ -149,13 +149,21 @@ code {
 <script>	
 
 	$(document).ready(function() {
-        $('.slideshow').jCarouselLite(carousel1Options);
 
-        $('.prev').width(($(window).width() - $('.slideshow').width())/2);
-        $('.prev').css('left', -($(window).width() - $('.slideshow').width())/2);
-        $('.next').width(($(window).width() - $('.slideshow').width())/2);
+        var width=screen.width; // ширина
+        var height=screen.height; // высота
+        if (width < 800 || height < 600) {
+            $('.slideshow_wrapper').hide();
+        } else {
+            $('.slideshow').jCarouselLite(carousel1Options);
 
-        $('.slideshow').offset({ left: ($(window).width()/2) - $('.slideshow').width()/2});
+            $('.prev').width(($(window).width() - $('.slideshow').width())/2);
+            $('.prev').css('left', -($(window).width() - $('.slideshow').width())/2);
+            $('.next').width(($(window).width() - $('.slideshow').width())/2);
+
+            $('.slideshow').offset({ left: ($(window).width()/2) - $('.slideshow').width()/2});
+        }
+        
 	});
 
 </script>
