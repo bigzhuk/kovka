@@ -6,6 +6,15 @@ namespace Catalog\Decorator;
 /** Декоратор каталога для использование на фронте */
 class Catalog {
 
+    /**
+     * @var количество столбцов в таблице товаров
+     */
+    public $col_count;
+    /**
+     * @var количество товаров на странице
+     */
+    public $item_count;
+
     private function renderGoodBlock(array $good) {
         $photos = $this->getPhotos($good);
         $thumb_photo_path = self::getThumbPathFromPhotoPath($photos[0]);
@@ -58,8 +67,9 @@ HTML;
         $category_table = '
         <table class="table table-striped table-bordered">
             <tbody>';
+        $col_count = $this->getColCount();
         foreach ($categories as $key => $category) {
-            if ($key % 4 === 1) {
+            if ($key % $col_count === 1) {
                 $key_row_close = $key;
                 $category_table .= '<tr>';
             }
@@ -77,10 +87,38 @@ HTML;
         return $category_table;
     }
 
+    /**
+     * Количество столбцов в таблице с товарами
+     * @return int
+     */
+    private function getColCount() {
+       if ($this->col_count) {
+           return $this->col_count;
+       }
+
+       if (
+            empty($_COOKIE['screen_width'])
+            || empty($_COOKIE['screen_height'])
+       ) {
+
+           $this->col_count = 3;
+       } elseif (
+             $_COOKIE['screen_width'] < 800
+             || $_COOKIE['screen_height'] < 600
+       ) {
+           $this->col_count = 3;
+       } else {
+           $this->col_count = 4;
+       }
+
+       return $this->col_count;
+    }
+
     public function renderCatalog($categories, $title) {
         return
-            '<h2>'.$title.'</h2>
-            <div align="center">'.$this->renderCategoryTable($categories).'</div>';
+            '<div align="center">'
+                .$this->renderCategoryTable($categories).
+            '</div>';
     }
 
     private function renderCatalogTable(array $goods) {
@@ -89,11 +127,13 @@ HTML;
         }
 
         $max_key = count($goods);
-        $good_table = '
+        $good_table = $this->getPaginator();
+        $good_table .= '
         <table class="table table-striped table-bordered">
             <tbody>';
+            $col_count = $this->getColCount();
             foreach ($goods as $key => $good) {
-                if ($key % 4 === 0) {
+                if ($key % $col_count === 0) {
                     $key_row_close = $key;
                     $good_table .= '<tr>';
                 }
@@ -105,6 +145,7 @@ HTML;
         $good_table .= '
             </tbody>
         </table>';
+        $good_table .= $this->getPaginator();
         return $good_table;
     }
 
@@ -154,6 +195,42 @@ HTML;
         }
         $photos = array_map(function($photo) {return str_replace('..', '../administrator', $photo);}, $photos);
         return $photos;
+    }
+
+    /**
+     * Количество товаров на странице равно квадрату количества столбцов.
+     * При верстке для 3 столбцов будет 9 товаров на странце. Для 4 - 16.
+     * @return int
+     */
+    public function getItemsOnPageCount() {
+        if ($this->item_count) {
+            return $this->item_count;
+        }
+        $this->item_count = $this->getColCount()*$this->getColCount();
+        return $this->item_count;
+    }
+
+    private function getPaginator() {
+        $moldel = new \Catalog\Model\Catalog();
+        $all_items_count = $moldel->count();
+        $items_on_page_count = $this->getItemsOnPageCount();
+        $out = [];
+        $cur_page = !empty($_GET['page']) ? (int)$_GET['page'] : 0;
+        $page_count = $all_items_count/$items_on_page_count;
+        if (!is_int($page_count)) {
+            $page_count = (int)$page_count + 1;
+        }
+        $path = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        for ($i = 1; $i <= $page_count; $i++) {
+            $path = preg_replace('|&page=\d+|', '', $path);
+            $color = $cur_page === $i ? 'darkred' : 'black';
+            $out[]= '<a style="color: '.$color.'" href="'.$path.'&page='.$i.'">'.$i.'</a>';
+        }
+        if (count($out) <=1 ) { // не будем показывать 0 и 1 страницу
+            return '';
+        }
+
+        return implode('&nbsp;&nbsp;', $out);
     }
 
 }

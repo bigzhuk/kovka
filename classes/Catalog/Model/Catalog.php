@@ -65,11 +65,16 @@ class Catalog {
     /**
      * Возврщает массив строк таблицы, дата начала публикации которых меньше либо равна сегодняшнему дню,
      * а дата конца публикации больше сегодняшнего дня
+     * @param int $category_id
+     * @param int $limit
+     * @param int $offset
      * @return array
      */
-    public function getAllPublished($category_id) {
+    public function getAllPublished($category_id, $limit, $offset) {
         $data = array();
-        $query = 'SELECT * FROM '.$this->getTableName().' WHERE is_active = 1 AND category_id = '.(int)$category_id;
+        $query = 'SELECT * FROM '.$this->getTableName().' 
+                  WHERE is_active = 1 AND category_id = '.(int)$category_id.' 
+                  LIMIT '.(int)$limit.' OFFSET '.(int)$offset;
         $result = DB::i()->getPDO()->query($query);
         if(!$result) {
             return array();
@@ -91,6 +96,19 @@ class Catalog {
             return array();
         }
         return $result->fetch();
+    }
+
+    /**
+     * @return int
+     */
+    public function count() {
+        $query = 'SELECT count(*) as cnt FROM '.$this->getTableName();
+        $result = DB::i()->getPDO()->query($query);
+        if (!$result) {
+            return 0;
+        }
+        $row = $result->fetch();
+        return $row['cnt'];
     }
 }
 

@@ -85,7 +85,9 @@ class Gallery {
 
 	<link rel="stylesheet/less" href="/style/style.less?q=<?php echo rand(1, 9999); ?>">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
 	<script src="js/script.js"></script>
+	<script src="js/resolution.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 	
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,400italic,700,700italic,300italic,300&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>

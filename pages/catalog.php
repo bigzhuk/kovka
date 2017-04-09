@@ -33,7 +33,6 @@
         /*width: 250px !important;	*/
     }
 </style>
-<h1>Каталог продукции</h1>
 <div class="container">
     <script>
         $(document).ready(function() {
@@ -66,7 +65,10 @@ if ($category_id) {
         $good = $model->getById($id);
         echo $decorator->renderGoodPage($good, \Catalog\Model\Catalog::$categories);
     } else { // страница каталога (таблица с товарами)
-        $goods = $model->getAllPublished($category_id);
+        $limit = $decorator->getItemsOnPageCount();
+        $page = !empty($_GET['page']) ? (int)$_GET['page'] : null;
+        $offset = $page  ? $limit*($page-1) : 0;
+        $goods = $model->getAllPublished($category_id, $limit, $offset);
         echo $decorator->renderCategory(\Catalog\Model\Catalog::$categories, $category_id, $goods);
     }
 } else {
