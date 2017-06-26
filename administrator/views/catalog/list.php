@@ -26,6 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => 'name',
             ],
             [
+                'header' => 'Артикул',
+                'value' => 'art',
+            ],
+            [
                 'header' => 'Категория',
                 'value' => function($model) {
                     require_once('../../classes/Catalog/Model/Catalog.php');
