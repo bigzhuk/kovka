@@ -121,6 +121,15 @@ HTML;
             '</div>';
     }
 
+    public function renderFoundGoods($goods) {
+        if (empty($goods)) {
+            return 'По вашему запросу ни одного товара не найдено :(';
+        }
+        return
+            '<div align="center">'.$this->renderCatalogTable($goods).'</div>
+            <p><a href="/catalog">Вернуться в каталог</a></p>';
+    }
+
     private function renderCatalogTable(array $goods) {
         if (empty($goods)) {
             return 'В данной категории пока нет товаров...';
@@ -186,6 +195,25 @@ HTML;
                 <div class="button" onclick="show_recall();">Заказать</div>
             </div>';
 
+    }
+
+    public function renderSearchForm() {
+        return '<div class="search-form">
+                    <form method="get" action="" id="search-form">
+                         <div>
+                            <div style="float: left;"><span class="art">Артикул или описание товара:</span>&nbsp;</div><div style="float: right;"><input type="text" name="f_keyword"></div>
+                         </div>
+                         <br/>
+                         <div>
+                            <div style="float: left; margin-top: 2px;"><span class="art">Цена:</span>&nbsp;</div><div style="float: right;"><span class="art">от</span>&nbsp;<input type="text" name="price_from">&nbsp;<span class="art">до</span>&nbsp;<input type="text" name="price_to"></div>
+                         </div>
+                         <br/>
+                         <div align="center" style="margin-top: 10px;">
+                            <div class="button" onclick="searchSubmit()">Искать</div>
+                         </div>
+                    </form>
+                </div>
+                <div style="clear: both;"></div>';
     }
 
     public function getPhotos($good) {

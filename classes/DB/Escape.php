@@ -31,4 +31,9 @@ class Escape {
     public  function cleanPassword($password) {
         return preg_replace('|[^A-Z-a-z0-9_@\!\?-]|','',$password);
     }
+
+    public function getString($str) {
+        $str = trim($str);
+        return preg_replace('|[^A-Z-a-zА-Яа-я0-9_-\s\.]|','', $str);
+    }
 }

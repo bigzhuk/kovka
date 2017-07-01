@@ -41,3 +41,7 @@ function subMenu() {
 		$(this).children('.sub_menu_link').css("display","none");
 	});
 }
+
+function searchSubmit() {
+    $('#search-form').submit();
+}

@@ -56,10 +56,24 @@
 <?php
 require_once('classes/autoload.php');
 $category_id = !empty($_GET['category_id']) ? (int)$_GET['category_id'] : null;
+
+$search_params = [];
+if (!empty($_GET['f_keyword'])) {
+    $search_params['f_keyword'] = $_GET['f_keyword'];
+}
+if (!empty($_GET['price_from'])) {
+    $search_params['price_from'] = $_GET['price_from'];
+}
+if (!empty($_GET['price_to'])) {
+    $search_params['price_to'] = $_GET['price_to'];
+}
+
+
+
 $model = new \Catalog\Model\Catalog();
 $decorator = new \Catalog\Decorator\Catalog();
-
-if ($category_id) {
+echo $decorator->renderSearchForm();
+if ($category_id || !empty($search_params)) {
     $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
     if ($id) { // страница конкретного товара
         $good = $model->getById($id);
@@ -68,8 +82,10 @@ if ($category_id) {
         $limit = $decorator->getItemsOnPageCount();
         $page = !empty($_GET['page']) ? (int)$_GET['page'] : null;
         $offset = $page  ? $limit*($page-1) : 0;
-        $goods = $model->getAllPublished($category_id, $limit, $offset);
-        echo $decorator->renderCategory(\Catalog\Model\Catalog::$categories, $category_id, $goods);
+        $goods = $model->getAllPublished($category_id, $limit, $offset, $search_params);
+        echo !empty($search_params)
+            ? $decorator->renderFoundGoods($goods)
+            : $decorator->renderCategory(\Catalog\Model\Catalog::$categories, $category_id, $goods);
     }
 } else {
     echo $decorator->renderCatalog(\Catalog\Model\Catalog::$categories, 'Категории каталога');

@@ -3,6 +3,7 @@
 namespace Catalog\Model;
 
 use DB\DB;
+use DB\Escape;
 
 
 /** Модель каталога для использование на фронте */
@@ -81,13 +82,16 @@ class Catalog {
      * @param int $category_id
      * @param int $limit
      * @param int $offset
+     * @param array $search_params
      * @return array
      */
-    public function getAllPublished($category_id, $limit, $offset) {
+    public function getAllPublished($category_id, $limit, $offset, $search_params = []) {
         $data = array();
         $query = 'SELECT * FROM '.$this->getTableName().' 
-                  WHERE is_active = 1 AND category_id = '.(int)$category_id.' 
-                  LIMIT '.(int)$limit.' OFFSET '.(int)$offset;
+                  WHERE is_active = 1 '
+                    .$this->getCategoryWhere($category_id)
+                    .$this->getSearchWhere($search_params)
+                    .' LIMIT '.(int)$limit.' OFFSET '.(int)$offset;
         $result = DB::i()->getPDO()->query($query);
         if(!$result) {
             return array();
@@ -122,6 +126,67 @@ class Catalog {
         }
         $row = $result->fetch();
         return $row['cnt'];
+    }
+
+    /**
+     * @param array $search_params
+     * @return string
+     */
+    private function getSearchWhere($search_params) {
+        $search_where = '';
+
+        $f_keyword = !empty($search_params['f_keyword']) ? Escape::i()->getString($search_params['f_keyword']) : '';
+        $price_from = !empty($search_params['price_from']) ? (int)$search_params['price_from'] : 0;
+        $price_to = !empty($search_params['price_to']) ? (int)$search_params['price_to'] : 0;
+
+        $search_where .= $this->getFkeywordWhere($f_keyword);
+        $search_where .= $this->getPriceFromWhere($price_from);
+        $search_where .= $this->getPriceToWhere($price_to);
+
+        return $search_where;
+    }
+
+    /**
+     * @param string|null $f_keyword
+     * @return string
+     */
+    private function getFkeywordWhere($f_keyword) {
+        if (empty($f_keyword)) {
+            return '';
+        }
+        if (strlen($f_keyword) < 3) {
+            return '';
+        }
+        $f_keyword = iconv("utf-8", "utf-8", $f_keyword);
+        // $f_keyword = Escape::i()->getString($f_keyword);
+        $search_where = " AND art LIKE '%{$f_keyword}%' OR name LIKE '%{$f_keyword}%' OR description LIKE '%{$f_keyword}%'";
+        return $search_where;
+    }
+
+    /**
+     * @param int $price_from
+     * @return string
+     */
+    private function getPriceFromWhere($price_from) {
+        if ($price_from === 0) {
+            return '';
+        }
+        return" AND price >={$price_from} ";
+    }
+
+    /**
+     * @param int $price_to
+     * @return string
+     */
+    private function getPriceToWhere($price_to) {
+        if ($price_to === 0) {
+            return '';
+        }
+        return" AND price <={$price_to} ";
+    }
+
+    private function getCategoryWhere($category_id) {
+        return $category_id ? ' AND category_id = '.(int)$category_id: '';
     }
 }
 
