@@ -72,7 +72,7 @@ if (!empty($_GET['price_to'])) {
 
 $model = new \Catalog\Model\Catalog();
 $decorator = new \Catalog\Decorator\Catalog();
-echo $decorator->renderSearchForm();
+echo $decorator->renderSearchForm($search_params);
 if ($category_id || !empty($search_params)) {
     $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
     if ($id) { // страница конкретного товара

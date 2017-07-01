@@ -34,6 +34,6 @@ class Escape {
 
     public function getString($str) {
         $str = trim($str);
-        return preg_replace('|[^A-Z-a-zА-Яа-я0-9_-\s\.]|','', $str);
+        return strip_tags(addslashes($str));
     }
 }

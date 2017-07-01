@@ -197,15 +197,22 @@ HTML;
 
     }
 
-    public function renderSearchForm() {
+    /**
+     * @param array $search_params
+     * @return string
+     */
+    public function renderSearchForm($search_params) {
+        $f_keyword = !empty($search_params['f_keyword']) ? $search_params['f_keyword'] : '';
+        $price_from = !empty($search_params['price_from']) ? $search_params['price_from'] : '';
+        $price_to = !empty($search_params['price_to']) ? $search_params['price_to'] : '';
         return '<div class="search-form">
                     <form method="get" action="" id="search-form">
                          <div>
-                            <div style="float: left;"><span class="art">Артикул или описание товара:</span>&nbsp;</div><div style="float: right;"><input type="text" name="f_keyword"></div>
+                            <div style="float: left;"><span class="art">Артикул или описание товара:</span>&nbsp;</div><div style="float: right;"><input type="text" name="f_keyword" value="'.$f_keyword.'"></div>
                          </div>
                          <br/>
                          <div>
-                            <div style="float: left; margin-top: 2px;"><span class="art">Цена:</span>&nbsp;</div><div style="float: right;"><span class="art">от</span>&nbsp;<input type="text" name="price_from">&nbsp;<span class="art">до</span>&nbsp;<input type="text" name="price_to"></div>
+                            <div style="float: left; margin-top: 2px;"><span class="art">Цена:</span>&nbsp;</div><div style="float: right;"><span class="art">от</span>&nbsp;<input type="text" name="price_from" value="'.$price_from.'">&nbsp;<span class="art">до</span>&nbsp;<input type="text" name="price_to" value="'.$price_to.'"></div>
                          </div>
                          <br/>
                          <div align="center" style="margin-top: 10px;">
