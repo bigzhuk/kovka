@@ -10,6 +10,7 @@ use yii;
  * @property integer $id
  * @property string $name
  * @property integer $category_id
+ * @property integer $subcategory_id
  * @property string $art
  * @property string $price
  * @property integer $is_active
@@ -48,7 +49,7 @@ class Catalog extends \yii\db\ActiveRecord
     {
         return [
             [['is_active', 'description', 'photo', 'art', 'price', 'category_id'], 'required'],
-            [['user_id', 'date_update'], 'integer'],
+            [['user_id', 'date_update', 'subcategory_id'], 'integer'],
             [['description', 'photo'], 'string'],
             [['name'], 'string', 'max' => 255],
         ];
@@ -64,6 +65,7 @@ class Catalog extends \yii\db\ActiveRecord
             'name' => 'Имя',
             'art' => 'Артикул',
             'category_id' => 'Категория',
+            'subcategory_id' => 'Подкатегория',
             'price' => 'Цена',
             'is_active' => 'Показывать на сайте?',
             'description' => 'Описание',

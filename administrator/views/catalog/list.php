@@ -37,6 +37,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
+                'header' => 'Подкатегория',
+                'value' => function($model) {
+                    require_once('../../classes/Catalog/Model/Catalog.php');
+                    return \Catalog\Model\Catalog::$subcategories[$model->subcategory_id];
+                }
+            ],
+            [
                 'header' => 'Описание',
                 'value' => 'description',
             ],

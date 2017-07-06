@@ -15,6 +15,7 @@ class CatalogForm extends Model
 public $id;
 public $name;
 public $category_id;
+public $subcategory_id;
 public $art;
 public $price;
 public $is_active;
@@ -34,7 +35,7 @@ public $date_update;
     {
         return [
             [['is_active', 'description', 'art', 'price', 'category_id'], 'required'],
-            [['user_id', 'date_update'], 'integer'],
+            [['user_id', 'date_update', 'subcategory_id'], 'integer'],
             [['description'], 'string'],
             [['name'], 'string', 'max' => 255],
             [['photo'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'maxFiles' => 8],
@@ -50,6 +51,7 @@ public $date_update;
             'name' => 'Название',
             'art' => 'Артикул',
             'category_id' => 'Категория',
+            'subcategory_id' => 'Подкатегория',
             'price' => 'Цена',
             'description' => 'Описание',
             'is_active' => 'Показывать товар?',

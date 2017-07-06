@@ -62,6 +62,7 @@ class CatalogController extends Controller
             if (!is_null($model)) {
                 $model->name = Html::encode($form->name);
                 $model->category_id = (int)$form->category_id;
+                $model->subcategory_id = (int)$form->subcategory_id;
                 $model->art = Html::encode($form->art);
                 $model->price = Html::encode($form->price);
                 $model->description = Html::encode($form->description);
