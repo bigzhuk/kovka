@@ -48,13 +48,14 @@ HTML;
 HTML;
     }
 
-    public function renderChooseCategoryList($categories) {
+    public function renderChooseCategoryList() {
+        $categories = \Catalog\Model\Catalog::getOrderedCategories();
         $select = '<select id="categories">';
-        foreach ($categories as $id => $name) {
-            if ($id == $_GET['category_id']) {
-                $select .= '<option value="'.$id.'" selected>'.$name.'</option>';
+        foreach ($categories as $order => $category) {
+            if ($category['id'] == $_GET['category_id']) {
+                $select .= '<option value="'.$category['id'].'" selected>'.$category['title'].'</option>';
             } else {
-                $select .= '<option value="' . $id . '">' . $name . '</option>';
+                $select .= '<option value="' . $category['id'] . '">' . $category['title'] . '</option>';
             }
         }
         $select .= '</select>';
@@ -73,10 +74,10 @@ HTML;
                 $key_row_close = $key;
                 $category_table .= '<tr>';
             }
-            $category_link = 'http://'.$_SERVER['HTTP_HOST'].'/catalog?category_id='.$key;
-            $photo_path = '../administrator/uploads/'.\Catalog\Model\Catalog::getPhotoUploadFolderName($key).'/main.jpg';
+            $category_link = 'http://'.$_SERVER['HTTP_HOST'].'/catalog?category_id='.$category['id'];
+            $photo_path = '../administrator/uploads/'.\Catalog\Model\Catalog::getPhotoUploadFolderName($category['id']).'/main.jpg';
 
-            $category_table .= '<td>'.$this->renderCategoryBlock($category_link, $photo_path, $category).'</td>';
+            $category_table .= '<td>'.$this->renderCategoryBlock($category_link, $photo_path, $category['title']).'</td>';
             if (($key_row_close + 3) === $key || $max_key === $key) {
                 $category_table .= '</tr>';
             }
@@ -166,7 +167,7 @@ HTML;
     color: #fff;
     background: #C42034;
     padding: 10px;
-    border-radius: 3px;">Выбрать другую категорию: '.$this->renderChooseCategoryList($categories).'</span>
+    border-radius: 3px;">Выбрать другую категорию: '.$this->renderChooseCategoryList().'</span>
     </div>
             <div align="center">'.$this->renderCatalogTable($goods).'
             <p><a href="/catalog">Вернуться в каталог</a></p>

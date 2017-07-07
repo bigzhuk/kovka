@@ -77,7 +77,7 @@ if ($category_id || !empty($search_params)) {
     $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
     if ($id) { // страница конкретного товара
         $good = $model->getById($id);
-        echo $decorator->renderGoodPage($good, \Catalog\Model\Catalog::$categories);
+        echo $decorator->renderGoodPage($good, \Catalog\Model\Catalog::getKeyValCategories());
     } else { // страница каталога (таблица с товарами)
         $limit = $decorator->getItemsOnPageCount();
         $page = !empty($_GET['page']) ? (int)$_GET['page'] : null;
@@ -85,10 +85,10 @@ if ($category_id || !empty($search_params)) {
         $goods = $model->getAllPublished($category_id, $limit, $offset, $search_params);
         echo !empty($search_params)
             ? $decorator->renderFoundGoods($goods)
-            : $decorator->renderCategory(\Catalog\Model\Catalog::$categories, $category_id, $goods);
+            : $decorator->renderCategory(\Catalog\Model\Catalog::getKeyValCategories(), $category_id, $goods);
     }
 } else {
-    echo $decorator->renderCatalog(\Catalog\Model\Catalog::$categories, 'Категории каталога');
+    echo $decorator->renderCatalog(\Catalog\Model\Catalog::getOrderedCategories(), 'Категории каталога');
 }
 
 ?>

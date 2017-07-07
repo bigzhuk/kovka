@@ -17,26 +17,30 @@ class Catalog {
      * сюда: self::$categories она должна добавиться и в app\models\Catalog::$categories.
      */
     public static $categories = [
-        1 => 'Навесы',
-        2 => 'Балконы',
-        3 => 'Беседки',
-        4 => 'Лестницы',
-        5 => 'Ограды',
-        6 => 'Ворота',
-        7 => 'Заборы',
-        8 => 'Мангалы',
-        9 => 'Козырьки',
-        10 => 'Решетки',
-        11 => 'Калитки',
-        12 => 'Скамейки',
-        13 => 'Качели',
-        14 => 'Столы',
-        15 => 'Стулья',
-        16 => 'Фонари',
-        17 => 'Цветочницы',
-        18 => 'Урны',
-        19 => 'Перила',
-        20 => 'Мебель и интерьер',
+        1 => ['title' => 'Навесы', 'order' => 1 ],
+        2 => ['title' => 'Балконы', 'order' => 4],
+        3 => ['title' => 'Беседки', 'order' => 3],
+        4 => ['title' => 'Лестницы', 'order' => 6],
+        5 => ['title' => 'Ограды', 'order' => 12],
+        6 => ['title' => 'Ворота', 'order' => 9],
+        7 => ['title' => 'Заборы', 'order' => 8],
+        8 => ['title' => 'Мангалы', 'order' => 16],
+        9 => ['title' => 'Козырьки', 'order' => 2],
+        10 => ['title' => 'Решетки', 'order' => 7],
+        11 => ['title' => 'Калитки', 'order' => 10],
+        12 => ['title' => 'Скамейки', 'order' => 15],
+        13 => ['title' => 'Качели', 'order' => 14],
+        14 => ['title' => 'Столы', 'order' => 17],
+        15 => ['title' => 'Стулья', 'order' => 18],
+        16 => ['title' => 'Фонари', 'order' => 21],
+        17 => ['title' => 'Цветочницы', 'order' => 19],
+        18 => ['title' => 'Урны', 'order' => 20],
+        19 => ['title' => 'Перила', 'order' => 5],
+        20 => ['title' => 'Мебель и интерьер',  'order' => 13],
+        21 => ['title' => 'Газонные ограждения',  'order' => 11],
+        22 => ['title' => 'Арки',  'order' => 22],
+        23 => ['title' => 'Мостики',  'order' => 23],
+        24 => ['title' => 'Металлоконструкции',  'order' => 24],
     ];
 
     public static $subcategories = [
@@ -51,8 +55,25 @@ class Catalog {
         8 => 'Гаражные',
     ];
 
+    public static function getOrderedCategories() {
+       $categories = [];
+       foreach (self::$categories as $id => $category) {
+           $categories[$category['order']] = ['title' => $category['title'], 'id' => $id];
+       }
+       ksort($categories);
+       return $categories;
+    }
+
+    public static function getKeyValCategories() {
+        $categories = [];
+        foreach (self::$categories as $id => $category) {
+            $categories[$id] = $category['title'];
+        }
+        return $categories;
+    }
+
     public static function getPhotoUploadFolderName($category_id) {
-        $textcyr = self::$categories[$category_id];
+        $textcyr = self::getKeyValCategories()[$category_id];
         $cyr = [
             'а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п',
             'р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',

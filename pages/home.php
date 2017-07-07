@@ -11,7 +11,7 @@ $banner = $new_controller->getNewsDecorator()->renderReklamniyBlock($new_rows);
 <div class="container">
 <?php
 	$decorator = new \Catalog\Decorator\Catalog();
-	echo $decorator->renderCatalog(\Catalog\Model\Catalog::$categories, 'Каталог продукции');
+	echo $decorator->renderCatalog(\Catalog\Model\Catalog::getOrderedCategories(), 'Каталог продукции');
 ?>
 </div>
 

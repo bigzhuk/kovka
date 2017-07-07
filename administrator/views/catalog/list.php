@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'header' => 'Категория',
                 'value' => function($model) {
                     require_once('../../classes/Catalog/Model/Catalog.php');
-                    return \Catalog\Model\Catalog::$categories[$model->category_id];
+                    return \Catalog\Model\Catalog::getKeyValCategories()[$model->category_id];
                 }
             ],
             [
