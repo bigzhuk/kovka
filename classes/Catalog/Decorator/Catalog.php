@@ -117,9 +117,11 @@ HTML;
 
     public function renderCatalog($categories, $title) {
         return
-            '<div align="center">'
-                .$this->renderCategoryTable($categories).
-            '</div>';
+            '<div align="center">
+                <div style="float: left;">'.$this->renderLeftMenu().'</div>
+                <div style="float: right;">'.$this->renderCategoryTable($categories).'</div>
+                <div style="clear:both;"></div>
+            </div>';
     }
 
     public function renderFoundGoods($goods) {
@@ -270,8 +272,34 @@ HTML;
         return implode('&nbsp;&nbsp;', $out);
     }
 
+    private function renderLeftMenuContent() {
+        $out = '';
+        $categories = \Catalog\Model\Catalog::getOrderedCategories();
+        foreach ($categories as $category) {
+            $out .= '<a style="color: #fff; cursor: pointer;" href="/catalog?category_id='.$category['id'].'">'.$category['title'].'</a><br/>';
+        }
+        return $out;
+    }
+
     public function renderLeftMenu() {
-        return 'left_menu';
+        $out =
+            '<div id="left_menu" style = "
+                    border: 1px solid rgb(185, 74, 72);
+                    width: 120px;
+                    display: block;
+                    background: #C42034;
+                    z-index: 100 !importan;   
+                    color: white;
+                    text-align: left;
+                    padding-left: 15px;
+                    padding-top: 5px;
+                    margin-top: 7px;
+                    border-radius: 5px;
+                    box-shadow: 0 0 3px 1px #D8DCDF;">
+                '.$this->renderLeftMenuContent().'
+            </div>';
+
+        return $out;
     }
 
 }

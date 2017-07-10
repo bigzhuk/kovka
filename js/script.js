@@ -22,12 +22,14 @@ function scrollPage(){
 
 	var catalog_position = catalog.position();
     var top_border = catalog_position.top;
-    var bottom_border = catalog_position.top + catalog.outerHeight();
+    var bottom_border = catalog_position.top + catalog.outerHeight() - left_menu.outerHeight() - 45;
 
     if (scrollTop > top_border && scrollTop <= bottom_border) {
-        left_menu.show();
+    	console.log('add');
+        left_menu.addClass('attached_left_menu');
 	} else {
-        left_menu.hide();
+        console.log('remove');
+        left_menu.removeClass('attached_left_menu');
 	}
 }
 

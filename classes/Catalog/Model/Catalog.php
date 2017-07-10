@@ -40,7 +40,7 @@ class Catalog {
         21 => ['title' => 'Газонные ограждения',  'order' => 11],
         22 => ['title' => 'Арки',  'order' => 22],
         23 => ['title' => 'Мостики',  'order' => 23],
-        24 => ['title' => 'Металлоконструкции',  'order' => 24],
+        24 => ['title' => 'Металло-конструкции',  'order' => 24],
     ];
 
     public static $subcategories = [

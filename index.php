@@ -29,16 +29,6 @@ require_once('classes/autoload.php');
 		<div id="mask" onclick="hidePopup();"></div>
 		<?php include('static/header.php'); ?>	
 		<div id="content">
-            <div id="left_menu" style = "
-                    border: 1px solid #b94a48;
-                    width: 40px;
-		            height: 40px;
-		            position: fixed!important;
-		            z-index: 100!important;
-		            left: 100px;
-		            top: 60px;
-                    display: none;">
-            </div>
             <div style="
 				    width: 40px;
 					height: 40px;
