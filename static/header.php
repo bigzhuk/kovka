@@ -51,7 +51,7 @@
 				<td id="phones">
 					<?= App::$phones[0]?><br>
 					<?= App::$phones[1]?><br>
-                    <a id="show_recall_btn" onclick="show_recall();">перезвоните мне</a>
+                    <a id="show_recall_btn" onclick="show_recall();">заказать звонок</a>
 					<!-- @TODO Указать время, когда принимаются звонки! Сделать форму - заказ обратного звонка. Как на dadget.ru. -->
 					<!-- (Использовать inputmask для номера.) -->
 				</td>
@@ -67,43 +67,44 @@
 
 	<div id="header_bottom">
 
-		<div id="main_menu">	
+		<div id="main_menu">
+            <?php $redirect_url = !empty($_SERVER["REDIRECT_URL"]) ? $_SERVER["REDIRECT_URL"] : ''?>
 
 			<center>
 
 				<!-- <div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'service') > 0){ echo ' active';} ?>" href="service">Услуги</a>
+					<a class="main_menu_link<?php if (strpos($redirect_url, 'service') > 0){ echo ' active';} ?>" href="service">Услуги</a>
 				</div> -->
 
 				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'catalog') > 0){ echo ' active';} ?>" href="catalog">Каталог</a>
+					<a class="main_menu_link<?php if (strpos($redirect_url, 'catalog') > 0){ echo ' active';} ?>" href="catalog">Каталог</a>
 				</div>
 
 				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'price_list') > 0){ echo ' active';} ?>" href="price_list">Цены</a>
+					<a class="main_menu_link<?php if (strpos($redirect_url, 'price_list') > 0){ echo ' active';} ?>" href="price_list">Цены</a>
 				</div>
 
 				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'delivery') > 0){ echo ' active';} ?>" href="delivery">Доставка</a>
+					<a class="main_menu_link<?php if (strpos($redirect_url, 'delivery') > 0){ echo ' active';} ?>" href="delivery">Доставка</a>
 				</div>
 
 				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'contacts') > 0){ echo ' active';} ?>" href="contacts">Контакты</a>
+					<a class="main_menu_link<?php if (strpos($redirect_url, 'contacts') > 0){ echo ' active';} ?>" href="contacts">Контакты</a>
 				</div>
 
 				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'examples') > 0){ echo ' active';} ?>" href="examples">Фотогалерея</a>
+					<a class="main_menu_link<?php if (strpos($redirect_url, 'examples') > 0){ echo ' active';} ?>" href="examples">Фотогалерея</a>
 				</div>
 
 				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'examples') > 0){ echo ' active';} ?>" href="">О продукции</a>
+					<a class="main_menu_link<?php if (strpos($redirect_url, 'examples') > 0){ echo ' active';} ?>" href="">О продукции</a>
 					<a class="sub_menu_link" style="display: none" href="navesy">Навесы</a>
 					<a class="sub_menu_link" style="display: none" href="zabory">Заборы</a>
 					<a class="sub_menu_link" style="display: none" href="lestnicy">Лестницы</a>
 				</div>
 
 				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($_SERVER["REDIRECT_URL"], 'about') > 0){ echo ' active';} ?>" href="about">О компании</a>
+					<a class="main_menu_link<?php if (strpos($redirect_url, 'about') > 0){ echo ' active';} ?>" href="about">О компании</a>
 				</div>
 
 			</center>

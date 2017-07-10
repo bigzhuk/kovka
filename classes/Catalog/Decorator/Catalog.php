@@ -187,7 +187,7 @@ HTML;
                 <!--<div style="margin-bottom: 5px;"><span style="font-weight: bold">Категория:</span> «'.$categories[$good['category_id']].'»</div>-->
                 <div style="margin-bottom: 5px;"><span style="font-weight: bold">Описание:</span> '.$good['description'].'</div>
                 <div style="margin-bottom: 5px;"><span style="font-weight: bold">Цена:</span> <span class="price">'.$good['price'].'</span> ₽</div>
-                <div>'.\Gallery::drawProductPhotoTable($photos).'</div>
+                <div>'.\Gallery\Index::drawProductPhotoTable($photos).'</div>
                
             </div>
             
@@ -268,6 +268,10 @@ HTML;
         }
 
         return implode('&nbsp;&nbsp;', $out);
+    }
+
+    public function renderLeftMenu() {
+        return 'left_menu';
     }
 
 }

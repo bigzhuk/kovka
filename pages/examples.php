@@ -1,3 +1,5 @@
+<?php require_once('classes/autoload.php'); ?>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
 
@@ -39,9 +41,9 @@
 <h1>Примеры работ</h1>
 <div class="container">
 	<?php
-	$folders = Gallery::get_photo_folders();
+	$folders = \Gallery\Index::get_photo_folders();
 	foreach ($folders as $folder => $title) {
-		echo Gallery::draw_photo_table($folder, $title);
+		echo \Gallery\Index::draw_photo_table($folder, $title);
 	}
 	?>
 </div>

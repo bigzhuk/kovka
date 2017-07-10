@@ -6,72 +6,6 @@ class App {
 	);
 	public static $email = 'sus-stroy@mail.ru';
 }
-class Gallery {
-	public static function get_photo_folders() {
-		return array(
-			'naves' => 'Навесы',
-			'balkon' => 'Балконы',
-			'besedka' => 'Беседки',
-			'lestnica' => 'Лестницы',
-			'mangal' => 'Мангалы',
-			'mebel' => 'Мебель и интерьер',
-			'mostik' => 'Мостики',
-			'ogradka' => 'Оргадки',
-			'reshetka' => 'Решётки',
-			'urna' => 'Урны',
-			'vorota' => 'Ворота',
-			'zabor' => 'Заборы'
-		);
-	}
-
-	public static function drawProductPhotoTable($photos) {
-		return
-			'<table class="mini_gallery" cellspacing="10" style="float: left">
-					<tbody>
-						<tr class="parent-container">'
-			.self::drawProductPhotoTr($photos).'
-						</tr>
-					</tbody>
-			</table><div style="clear: left"></div>';
-	}
-
-	private static function drawProductPhotoTr($photos) {
-		$out = '';
-
-		foreach ($photos as $photo) {
-				$thumb = \Catalog\Decorator\Catalog::getThumbPathFromPhotoPath($photo);
-				$out.= '<td style="height: 1px; background-image: url(\''.$thumb.'\')" href="'.$photo.'"></td>';
-		}
-		return $out;
-	}
-
-
-	public static function draw_photo_table($folder, $title = '', $count = 10) {
-		$title = $title ? '<h2>'.$title.'</h2>' : '';
-		$out =
-			$title.'
-			<table class="mini_gallery" cellspacing="10">
-					<tbody>
-						<tr class="parent-container">'
-					.self::draw_photo_tr($folder, $count).'
-						</tr>
-					</tbody>
-			</table>';
-		return $out;
-	}
-
-	public static function draw_photo_tr($folder, $count) {
-		$out = '';
-		for ($i=1; $i <= $count; $i++) {
-			$i = $i < 10 ? '0'.$i : $i;
-			if(is_file('images/photo/'.$folder.'/'.$i.'.jpg')) {
-				$out.= '<td style="background-image: url(\'images/photo/'.$folder.'/'.$i.'.jpg\')"
-			href="images/photo_big/'.$folder.'/'.$i.'.jpg"></td>';
-			}
-		}
-		return $out;
-	}
-}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -99,14 +33,24 @@ class Gallery {
 		<div id="mask" onclick="hidePopup();"></div>
 		<?php include('static/header.php'); ?>	
 		<div id="content">
-			<div style="
+            <div id="left_menu" style = "
+                    border: 1px solid #b94a48;
+                    width: 40px;
+		            height: 40px;
+		            position: fixed!important;
+		            z-index: 100!important;
+		            left: 100px;
+		            top: 60px;
+                    display: none;">
+            </div>
+            <div style="
 				    width: 40px;
 					height: 40px;
 					position: fixed!important;
 					bottom: 150px;
 					opacity: 0.8;
 					z-index: 100!important;
-					left: 10px;
+					right: 100px;
 					cursor: pointer">
 				<a onclick="show_recall();"><img id="phone_img" src="/images/phone.png" /></a>
 			</div>

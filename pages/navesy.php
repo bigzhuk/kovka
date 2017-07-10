@@ -1,4 +1,8 @@
-<?php define('START_WORK', 2010);?>
+<?php
+define('START_WORK', 2010);
+require_once('classes/autoload.php');
+?>
+
 <h1>Навесы из поликарбоната</h1>
 
 <div class="container">
@@ -136,7 +140,7 @@
 		<?php
 		$folders = array('naves' => 'Фото наших работ');
 		foreach ($folders as $folder => $title) {
-			echo Gallery::draw_photo_table($folder, $title, 14);
+			echo \Gallery\Index::draw_photo_table($folder, $title, 14);
 		}
 		?>
 

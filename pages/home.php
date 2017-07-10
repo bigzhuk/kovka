@@ -8,7 +8,7 @@ $banner = $new_controller->getNewsDecorator()->renderReklamniyBlock($new_rows);
 
 <?php include('static/slider.php'); ?>
 
-<div class="container">
+<div class="container" id="catalog">
 <?php
 	$decorator = new \Catalog\Decorator\Catalog();
 	echo $decorator->renderCatalog(\Catalog\Model\Catalog::getOrderedCategories(), 'Каталог продукции');

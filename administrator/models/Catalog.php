@@ -22,18 +22,6 @@ use yii;
 class Catalog extends \yii\db\ActiveRecord
 {
 
-    public static $categories = [
-        1 => 'Навесы',
-        2 => 'Балконы',
-        3 => 'Беседки',
-        4 => 'Лестницы',
-        5 => 'Перила',
-        6 => 'Ограды',
-        7 => 'Ворота',
-        8 => 'Заборы',
-        9 => 'Мангалы',
-
-    ];
     /**
      * @inheritdoc
      */

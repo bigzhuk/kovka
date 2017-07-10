@@ -33,7 +33,30 @@
         /*width: 250px !important;	*/
     }
 </style>
+
+<?php
+require_once('classes/autoload.php');
+$category_id = !empty($_GET['category_id']) ? (int)$_GET['category_id'] : null;
+
+$search_params = [];
+if (!empty($_GET['f_keyword'])) {
+    $search_params['f_keyword'] = $_GET['f_keyword'];
+}
+if (!empty($_GET['price_from'])) {
+    $search_params['price_from'] = $_GET['price_from'];
+}
+if (!empty($_GET['price_to'])) {
+    $search_params['price_to'] = $_GET['price_to'];
+}
+$model = new \Catalog\Model\Catalog();
+$decorator = new \Catalog\Decorator\Catalog();
+
+?>
+
 <div class="container">
+    <?php echo $decorator->renderSearchForm($search_params); ?>
+</div>
+<div class="container" id="catalog">
     <script>
         $(document).ready(function() {
             $('#categories').on('change', function() {
@@ -52,27 +75,8 @@
             });
         });
     </script>
-
 <?php
-require_once('classes/autoload.php');
-$category_id = !empty($_GET['category_id']) ? (int)$_GET['category_id'] : null;
 
-$search_params = [];
-if (!empty($_GET['f_keyword'])) {
-    $search_params['f_keyword'] = $_GET['f_keyword'];
-}
-if (!empty($_GET['price_from'])) {
-    $search_params['price_from'] = $_GET['price_from'];
-}
-if (!empty($_GET['price_to'])) {
-    $search_params['price_to'] = $_GET['price_to'];
-}
-
-
-
-$model = new \Catalog\Model\Catalog();
-$decorator = new \Catalog\Decorator\Catalog();
-echo $decorator->renderSearchForm($search_params);
 if ($category_id || !empty($search_params)) {
     $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
     if ($id) { // страница конкретного товара

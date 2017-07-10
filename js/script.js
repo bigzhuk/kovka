@@ -13,6 +13,22 @@ function scrollPage(){
 	} else {
 		$('#header_bottom').removeClass('attached');
 	}
+
+	var left_menu = $('#left_menu');
+	var catalog = $('#catalog');
+	if (typeof(left_menu[0]) === 'undefined' || typeof(catalog[0]) === 'undefined') {
+		return;
+	}
+
+	var catalog_position = catalog.position();
+    var top_border = catalog_position.top;
+    var bottom_border = catalog_position.top + catalog.outerHeight();
+
+    if (scrollTop > top_border && scrollTop <= bottom_border) {
+        left_menu.show();
+	} else {
+        left_menu.hide();
+	}
 }
 
 function dindin() {
