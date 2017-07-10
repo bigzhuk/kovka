@@ -8,10 +8,10 @@
 				<td>Время работы офиса:</td><td>по будням, c 9:00 до 19:00</td>
 			</tr>
 			<tr>
-				<td>Телфон:</td><td><?= App::$phones[0]?><br><?= App::$phones[1]?></td>
+				<td>Телфон:</td><td><?= \App\Index::$phones[0]?><br><?= \App\Index::$phones[1]?></td>
 			</tr>
 			<tr>
-				<td>Факс:</td><td><?= App::$phones[0]?></td>
+				<td>Факс:</td><td><?= \App\Index::$phones[0]?></td>
 			</tr>
 		</table>
 	</center>

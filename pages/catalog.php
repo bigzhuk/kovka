@@ -35,7 +35,6 @@
 </style>
 
 <?php
-require_once('classes/autoload.php');
 $category_id = !empty($_GET['category_id']) ? (int)$_GET['category_id'] : null;
 
 $search_params = [];

@@ -1,12 +1,8 @@
-<?php include('engine/ajax.php'); ?>
 <?php
-class App {
-	public static $phones = array(
-		'+7(499)899-78-87','+7(926)300-29-09',
-	);
-	public static $email = 'sus-stroy@mail.ru';
-}
+include('engine/ajax.php');
+require_once('classes/autoload.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>

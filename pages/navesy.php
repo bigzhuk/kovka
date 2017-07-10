@@ -1,6 +1,5 @@
 <?php
 define('START_WORK', 2010);
-require_once('classes/autoload.php');
 ?>
 
 <h1>Навесы из поликарбоната</h1>
