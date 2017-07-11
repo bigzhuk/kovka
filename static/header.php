@@ -104,7 +104,7 @@
 				</div>
 
 				<div class="menu_section">
-					<a class="main_menu_link<?php if (strpos($redirect_url, 'about') > 0){ echo ' active';} ?>" href="about">О компании</a>
+					<a class="main_menu_link<?php if (strpos($redirect_url, 'about') > 0){ echo ' active';} ?>" href="about">О нас</a>
 				</div>
 
 			</center>
