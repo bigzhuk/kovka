@@ -129,8 +129,9 @@ HTML;
             return 'По вашему запросу ни одного товара не найдено :(';
         }
         return
-            '<div align="center">'.$this->renderCatalogTable($goods).'</div>
-            <p><a href="/catalog">Вернуться в каталог</a></p>';
+           '<div align="center">'.$this->renderCatalogTable($goods).'
+            <p><a href="/catalog">Вернуться в каталог</a></p>
+            </div>';
     }
 
     private function renderCatalogTable(array $goods) {
@@ -211,15 +212,9 @@ HTML;
         return '<div class="search-form">
                     <form method="get" action="" id="search-form">
                          <div>
-                            <div style="float: left;"><span class="art">Артикул или описание товара:</span>&nbsp;</div><div style="float: right;"><input type="text" name="f_keyword" value="'.$f_keyword.'"></div>
-                         </div>
-                         <br/>
-                         <div>
-                            <div style="float: left; margin-top: 2px;"><span class="art">Цена:</span>&nbsp;</div><div style="float: right;"><span class="art">от</span>&nbsp;<input type="text" name="price_from" value="'.$price_from.'">&nbsp;<span class="art">до</span>&nbsp;<input type="text" name="price_to" value="'.$price_to.'"></div>
-                         </div>
-                         <br/>
-                         <div align="center" style="margin-top: 10px;">
-                            <div class="button" onclick="searchSubmit()">Искать</div>
+                           <div style="float: left; margin-right: 15px;"><span class="art">Артикул или описание товара:</span>&nbsp;<input type="text" name="f_keyword" value="'.$f_keyword.'" style="min-width: 250px;"></div>
+                           <div style="float: left; margin-right: 15px;"><span class="art">Цена:</span>&nbsp;<span class="art">от</span>&nbsp;<input type="text" name="price_from" value="'.$price_from.'">&nbsp;<span class="art">до</span>&nbsp;<input type="text" name="price_to" value="'.$price_to.'"></div>     
+                           <div style="float: left" class="button" onclick="searchSubmit()">Искать</div>
                          </div>
                     </form>
                 </div>
