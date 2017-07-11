@@ -38,22 +38,24 @@ HTML;
     }
 
     private function renderCategoryBlock($category_link, $photo_path, $category) {
-        $subcategories = $this->renderSubCategoriesLinks($category['subcategories']);
+        $subcategories = $this->renderSubCategoriesLinks($category);
         return <<<HTML
       <a href="{$category_link}">
-      <div class="prod_box"> 
-        <div class ="img_box"><img height="200" width="200" src="{$photo_path}"></div>
-         <div><span class="price">{$category['title']}</span></div>
-         <div class="subcategories_list">{$subcategories}</div>
-      </div>
+          <div class="prod_box"> 
+             <div class ="img_box"><img height="200" width="200" src="{$photo_path}"></div>
+             <div><span class="price">{$category['title']}</span></div>
+             <div class="subcategories_list">{$subcategories}</div>
+          </div>
       </a>
 HTML;
     }
 
-    private function renderSubCategoriesLinks(array $subcategory_ids) {
+    private function renderSubCategoriesLinks(array $category) {
         $out = '';
-        foreach ($subcategory_ids as $subcategory_id) {
-            $out .= '<div class="subcategory_link">'.\Catalog\Model\Catalog::$subcategories[$subcategory_id].'</div>';
+        foreach ($category['subcategories'] as $subcategory_id) {
+            $out .= '<div class="subcategory_link">
+                        <a href="/catalog?category_id='.$category['id'].'&subcategory_id='.$subcategory_id.'">'.\Catalog\Model\Catalog::$subcategories[$subcategory_id].'</a>
+                     </div>';
         }
         return $out;
     }
@@ -172,9 +174,12 @@ HTML;
         return $good_table;
     }
 
-    public function renderCategory($categories, $category_id, $goods) {
+    public function renderCategory($category_id, $subcategory_id,  $goods) {
+        $title = '';
+        $title .= $category_id ? \Catalog\Model\Catalog::getKeyValCategories()[$category_id].' ' : '';
+        $title .= $subcategory_id ? \Catalog\Model\Catalog::$subcategories[$subcategory_id].' ' : '';
         return
-            '<h2>'.$categories[$category_id].'</h2>
+            '<h2>'.$title.'</h2>
             <div style="padding-bottom: 10px">
             <span style="text-align: center;
     color: #fff;

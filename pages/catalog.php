@@ -36,6 +36,7 @@
 
 <?php
 $category_id = !empty($_GET['category_id']) ? (int)$_GET['category_id'] : null;
+$subcategory_id = !empty($_GET['subcategory_id']) ? (int)$_GET['subcategory_id'] : null;
 
 $search_params = [];
 if (!empty($_GET['f_keyword'])) {
@@ -85,10 +86,10 @@ if ($category_id || !empty($search_params)) {
         $limit = $decorator->getItemsOnPageCount();
         $page = !empty($_GET['page']) ? (int)$_GET['page'] : null;
         $offset = $page  ? $limit*($page-1) : 0;
-        $goods = $model->getAllPublished($category_id, $limit, $offset, $search_params);
+        $goods = $model->getAllPublished($category_id, $subcategory_id, $limit, $offset, $search_params);
         echo !empty($search_params)
             ? $decorator->renderFoundGoods($goods)
-            : $decorator->renderCategory(\Catalog\Model\Catalog::getKeyValCategories(), $category_id, $goods);
+            : $decorator->renderCategory($category_id, $subcategory_id, $goods);
     }
 } else {
     echo $decorator->renderCatalog(\Catalog\Model\Catalog::getOrderedCategories(), 'Категории каталога');
