@@ -33,7 +33,7 @@
 		<p style="color:white; text-align: left">
 		<?= \App\Index::$phones[0] ?> или оставьте ваш телефон и мы перезвоним.:) Ежедневно с 09:00 до 22:00</p>
 		<span style="color: white">Имя:</span> <input id="recall_name"  name="name" type="text" ><br>
-		<span style="color: white">Тел.:</span> <input id="recall_phone" name="phone" type="text" value="Телефон"><br>
+		<span style="color: white">Тел.:</span> <input id="recall_phone" name="phone" type="text"><br>
 		<input id="recall_btn" type="button" value="Отправить" onclick="recall();">
 	</div>
 
@@ -117,9 +117,9 @@
 </div>
 
 <script>
-	$(document).ready(function() {
+	/*$(document).ready(function() {
 		$('#recall_phone').mask('8 (999) 999-9999',{placeholder:"×"});
-	});
+	});*/
 
 	function hidePopup(){
 		$('#mask,.popup').fadeOut(500);
