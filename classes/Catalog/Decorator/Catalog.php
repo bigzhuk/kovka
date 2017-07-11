@@ -212,9 +212,15 @@ HTML;
         return '<div class="search-form">
                     <form method="get" action="" id="search-form">
                          <div>
-                           <div style="float: left; margin-right: 15px;"><span class="art">Артикул или описание товара:</span>&nbsp;<input type="text" name="f_keyword" value="'.$f_keyword.'" style="min-width: 250px;"></div>
-                           <div style="float: left; margin-right: 15px;"><span class="art">Цена:</span>&nbsp;<span class="art">от</span>&nbsp;<input type="text" name="price_from" value="'.$price_from.'">&nbsp;<span class="art">до</span>&nbsp;<input type="text" name="price_to" value="'.$price_to.'"></div>     
-                           <div style="float: left" class="button" onclick="searchSubmit()">Искать</div>
+                           <div style="float: left; margin-right: 15px; width: 50%">
+                                <div style="float: left;" class="art">Артикул или описание товара:</div>&nbsp;
+                                <div><input type="text" name="f_keyword" value="'.$f_keyword.'" style="width: 100%;"></div>
+                           </div>     
+                           <div style="float: left; margin-right: 15px; min-width:200px">
+                                <div style="float: left;" class="art" >Цена:</div>&nbsp;
+                                <div><span class="art">от</span>&nbsp;<input type="text" name="price_from" value="'.$price_from.'">&nbsp;<span class="art">до</span>&nbsp;<input type="text" name="price_to" value="'.$price_to.'"></div>  
+                            </div>
+                           <div style="float: left; margin-top: 10px;" class="button" onclick="searchSubmit()">Искать</div>
                          </div>
                     </form>
                 </div>
