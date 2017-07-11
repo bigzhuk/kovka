@@ -4,6 +4,13 @@ $(document).ready(function() {
 	scrollPage();
 	$(window).on('scroll', scrollPage);
 	subMenu();
+
+	$('.prod_box').on('mouseover', function () {
+		$(this).find('.subcategories_list').show();
+    });
+    $('.prod_box').on('mouseout', function () {
+        $(this).find('.subcategories_list').hide();
+    });
 });
 
 function scrollPage(){
@@ -25,10 +32,8 @@ function scrollPage(){
     var bottom_border = catalog_position.top + catalog.outerHeight() - left_menu.outerHeight() - 45;
 
     if (scrollTop > top_border && scrollTop <= bottom_border) {
-    	console.log('add');
         left_menu.addClass('attached_left_menu');
 	} else {
-        console.log('remove');
         left_menu.removeClass('attached_left_menu');
 	}
 }

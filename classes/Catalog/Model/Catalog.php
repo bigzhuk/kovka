@@ -17,30 +17,30 @@ class Catalog {
      * сюда: self::$categories она должна добавиться и в app\models\Catalog::$categories.
      */
     public static $categories = [
-        1 => ['title' => 'Навесы', 'order' => 1 ],
-        2 => ['title' => 'Балконы', 'order' => 4],
-        3 => ['title' => 'Беседки', 'order' => 3],
-        4 => ['title' => 'Лестницы', 'order' => 6],
-        5 => ['title' => 'Ограды', 'order' => 12],
-        6 => ['title' => 'Ворота', 'order' => 9],
-        7 => ['title' => 'Заборы', 'order' => 8],
-        8 => ['title' => 'Мангалы', 'order' => 16],
-        9 => ['title' => 'Козырьки', 'order' => 2],
-        10 => ['title' => 'Решетки', 'order' => 7],
-        11 => ['title' => 'Калитки', 'order' => 10],
-        12 => ['title' => 'Скамейки', 'order' => 15],
-        13 => ['title' => 'Качели', 'order' => 14],
-        14 => ['title' => 'Столы', 'order' => 17],
-        15 => ['title' => 'Стулья', 'order' => 18],
-        16 => ['title' => 'Фонари', 'order' => 21],
-        17 => ['title' => 'Цветочницы', 'order' => 19],
-        18 => ['title' => 'Урны', 'order' => 20],
-        19 => ['title' => 'Перила', 'order' => 5],
-        20 => ['title' => 'Мебель и интерьер',  'order' => 13],
-        21 => ['title' => 'Газонные ограждения',  'order' => 11],
-        22 => ['title' => 'Арки',  'order' => 22],
-        23 => ['title' => 'Мостики',  'order' => 23],
-        24 => ['title' => 'Металло-конструкции',  'order' => 24],
+        1 => ['title' => 'Навесы', 'order' => 1, 'subcategories' => [1,3]],
+        2 => ['title' => 'Балконы', 'order' => 4, 'subcategories' => [1,2]],
+        3 => ['title' => 'Беседки', 'order' => 3, 'subcategories' => [1,2]],
+        4 => ['title' => 'Лестницы', 'order' => 6, 'subcategories' => [4,5]],
+        5 => ['title' => 'Ограды', 'order' => 12, 'subcategories' => [1,2]],
+        6 => ['title' => 'Ворота', 'order' => 9, 'subcategories' => [1,2,7,8]],
+        7 => ['title' => 'Заборы', 'order' => 8, 'subcategories' => [1,2,6]],
+        8 => ['title' => 'Мангалы', 'order' => 16, 'subcategories' => []],
+        9 => ['title' => 'Козырьки', 'order' => 2, 'subcategories' => [1,2]],
+        10 => ['title' => 'Решетки', 'order' => 7, 'subcategories' => [1,2]],
+        11 => ['title' => 'Калитки', 'order' => 10, 'subcategories' => [1,2]],
+        12 => ['title' => 'Скамейки', 'order' => 15, 'subcategories' => [1,2]],
+        13 => ['title' => 'Качели', 'order' => 14, 'subcategories' => [1,2]],
+        14 => ['title' => 'Столы', 'order' => 17, 'subcategories' => []],
+        15 => ['title' => 'Стулья', 'order' => 18, 'subcategories' => []],
+        16 => ['title' => 'Фонари', 'order' => 21, 'subcategories' => []],
+        17 => ['title' => 'Цветочницы', 'order' => 19, 'subcategories' => []],
+        18 => ['title' => 'Урны', 'order' => 20, 'subcategories' => []],
+        19 => ['title' => 'Перила', 'order' => 5, 'subcategories' => [1,2]],
+        20 => ['title' => 'Мебель и интерьер',  'order' => 13, 'subcategories' => []],
+        21 => ['title' => 'Газонные ограждения',  'order' => 11, 'subcategories' => [1,2]],
+        22 => ['title' => 'Арки',  'order' => 22, 'subcategories' => []],
+        23 => ['title' => 'Мостики',  'order' => 23, 'subcategories' => []],
+        24 => ['title' => 'Металло-конструкции',  'order' => 24, 'subcategories' => []],
     ];
 
     public static $subcategories = [
@@ -58,7 +58,7 @@ class Catalog {
     public static function getOrderedCategories() {
        $categories = [];
        foreach (self::$categories as $id => $category) {
-           $categories[$category['order']] = ['title' => $category['title'], 'id' => $id];
+           $categories[$category['order']] = ['title' => $category['title'], 'id' => $id, 'subcategories' => $category['subcategories']];
        }
        ksort($categories);
        return $categories;

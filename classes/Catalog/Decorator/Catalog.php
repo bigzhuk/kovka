@@ -38,14 +38,24 @@ HTML;
     }
 
     private function renderCategoryBlock($category_link, $photo_path, $category) {
+        $subcategories = $this->renderSubCategoriesLinks($category['subcategories']);
         return <<<HTML
       <a href="{$category_link}">
       <div class="prod_box"> 
         <div class ="img_box"><img height="200" width="200" src="{$photo_path}"></div>
-         <div><span class="price">{$category}</span></div>
+         <div><span class="price">{$category['title']}</span></div>
+         <div class="subcategories_list">{$subcategories}</div>
       </div>
       </a>
 HTML;
+    }
+
+    private function renderSubCategoriesLinks(array $subcategory_ids) {
+        $out = '';
+        foreach ($subcategory_ids as $subcategory_id) {
+            $out .= '<div class="subcategory_link">'.\Catalog\Model\Catalog::$subcategories[$subcategory_id].'</div>';
+        }
+        return $out;
     }
 
     public function renderChooseCategoryList() {
@@ -77,7 +87,7 @@ HTML;
             $category_link = 'http://'.$_SERVER['HTTP_HOST'].'/catalog?category_id='.$category['id'];
             $photo_path = '../administrator/uploads/'.\Catalog\Model\Catalog::getPhotoUploadFolderName($category['id']).'/main.jpg';
 
-            $category_table .= '<td>'.$this->renderCategoryBlock($category_link, $photo_path, $category['title']).'</td>';
+            $category_table .= '<td>'.$this->renderCategoryBlock($category_link, $photo_path, $category).'</td>';
             if (($key_row_close + 3) === $key || $max_key === $key) {
                 $category_table .= '</tr>';
             }
