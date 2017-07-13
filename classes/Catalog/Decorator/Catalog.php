@@ -300,10 +300,10 @@ HTML;
     public function renderLeftMenu() {
         $out =
             '<div id="left_menu" style = "
-                    border: 1px solid rgb(185, 74, 72);
+                    border: 1px solid white;
                     width: 120px;
                     display: block;
-                    background: #C42034;
+                    background: rgba(25, 50, 60, 0.75);
                     z-index: 100 !importan;   
                     color: white;
                     text-align: left;
