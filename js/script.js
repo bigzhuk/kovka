@@ -11,6 +11,10 @@ $(document).ready(function() {
     $('.prod_box').on('mouseout', function () {
         $(this).find('.subcategories_list').hide();
     });
+
+    $('.menu_toggler').on('click', function () {
+        $(this).parent().next('.subcategories').toggle();
+    });
 });
 
 function scrollPage(){

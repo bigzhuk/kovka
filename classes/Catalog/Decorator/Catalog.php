@@ -291,27 +291,25 @@ HTML;
     private function renderLeftMenuContent() {
         $out = '';
         $categories = \Catalog\Model\Catalog::getOrderedCategories();
+
         foreach ($categories as $category) {
-            $out .= '<a style="color: #fff; cursor: pointer;" href="/catalog?category_id='.$category['id'].'">'.$category['title'].'</a><br/>';
+            $subcategories = $this->renderSubCategoriesLinks($category);
+            $out .= '<div class="category">';
+            if (!empty($category['subcategories'])) {
+                $out .= '<div class="menu_toggler" style="float: left; padding-right: 3px; cursor: pointer">+</div>';
+            } else {
+                $out .= '<div style="float: left; padding-right: 8px;">&nbsp;</div>';
+            }
+            $out .= '<div style="overflow: hidden"><a href="/catalog?category_id='.$category['id'].'">'.$category['title'].'</a></div>
+                     </div>
+                     <div class="subcategories">'.$subcategories.'</div>';
         }
         return $out;
     }
 
     public function renderLeftMenu() {
         $out =
-            '<div id="left_menu" style = "
-                    border: 1px solid white;
-                    width: 120px;
-                    display: block;
-                    background: rgba(25, 50, 60, 0.75);
-                    z-index: 100 !importan;   
-                    color: white;
-                    text-align: left;
-                    padding-left: 15px;
-                    padding-top: 5px;
-                    margin-top: 7px;
-                    border-radius: 5px;
-                    box-shadow: 0 0 3px 1px #D8DCDF;">
+            '<div id="left_menu">
                 '.$this->renderLeftMenuContent().'
             </div>';
 
