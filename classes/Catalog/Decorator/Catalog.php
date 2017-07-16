@@ -130,7 +130,7 @@ HTML;
     public function renderCatalog($categories, $title) {
         return
             '<div align="center">
-                <div style="float: left;">'.$this->renderLeftMenu().'</div>
+                <div style="float: left; margin-top: -5px;">'.$this->renderLeftMenu().'</div>
                 <div style="float: right;">'.$this->renderCategoryTable($categories).'</div>
                 <div style="clear:both;"></div>
             </div>';
@@ -291,19 +291,51 @@ HTML;
     private function renderLeftMenuContent() {
         $out = '';
         $categories = \Catalog\Model\Catalog::getOrderedCategories();
+        $out .='
+         <div class="category">
+            <ul id="menu">';
+            foreach ($categories as $category) {
 
-        foreach ($categories as $category) {
-            $subcategories = $this->renderSubCategoriesLinks($category);
-            $out .= '<div class="category">';
-            if (!empty($category['subcategories'])) {
-                $out .= '<div class="menu_toggler" style="float: left; padding-right: 3px; cursor: pointer">+</div>';
-            } else {
-                $out .= '<div style="float: left; padding-right: 8px;">&nbsp;</div>';
+
+                if (empty($category['subcategories'])) {
+                    $out .= '<li><a href="/catalog?category_id=' . $category['id'] . '">' . $category['title'] . '</a></li>';
+                } else {
+                    $out .= '<li class="sub"><a href="#">'.$category['title'].'</a>';
+                    $out .= '<ul>';
+                    foreach ($category['subcategories'] as $subcategory_id) {
+                        $out .= '<li><a href="/catalog?category_id=' . $category['id'] . '&subcategory_id=' . $subcategory_id . '">' . \Catalog\Model\Catalog::$subcategories[$subcategory_id] . '</a></li>';
+                    }
+                    $out .= '</ul>';
+                    $out .= '</li>';
+                }
             }
-            $out .= '<div style="overflow: hidden"><a href="/catalog?category_id='.$category['id'].'">'.$category['title'].'</a></div>
-                     </div>
-                     <div class="subcategories">'.$subcategories.'</div>';
-        }
+            /*<li><a href="http://dbmast.ru">Просто ссылка</a></li>
+            <li class="sub"><a href="#">Пункт Меню - 1</a>
+              <ul>
+                <li><a href="http://dbmast.ru">Ссылка 1-1</a></li>
+                <li><a href="#">Ссылка 1-2</a></li>
+                <li><a href="#">Ссылка 1-3</a></li>
+              </ul>
+            </li>
+            <li class="sub"><a href="#">Пункт Меню - 2</a>
+              <ul>
+                <li><a href="#">Ссылка 2-1</a></li>
+                <li><a href="#">Ссылка 2-2</a></li>
+              </ul>
+            </li>
+            <li class="sub"><a href="#">Пункт Меню - 3</a>
+              <ul>
+                <li><a href="#">Ссылка 3-1</a></li>
+                <li><a href="#">Ссылка 3-1</a></li>
+                <li><a href="#">Ссылка 3-1</a></li>
+                <li><a href="#">Ссылка 3-1</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Просто ссылка</a></li>*/
+         $out .= '
+            </ul>
+         </div>';
+
         return $out;
     }
 
