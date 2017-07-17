@@ -130,7 +130,7 @@ HTML;
     public function renderCatalog($categories, $title) {
         return
             '<div align="center">
-                <div style="float: left; margin-top: -5px;">'.$this->renderLeftMenu().'</div>
+                <div style="float: left; margin-top: -6px;">'.$this->renderLeftMenu().'</div>
                 <div style="float: right;">'.$this->renderCategoryTable($categories).'</div>
                 <div style="clear:both;"></div>
             </div>';
