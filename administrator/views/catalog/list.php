@@ -3,16 +3,31 @@
 /**
  * @var $this yii\web\View
  * @var $data_provider \yii\data\ActiveDataProvider
+ * @var $selected_category_id \yii\data\ActiveDataProvider
  */
 
 use yii\grid\GridView;
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+require_once('../../classes/Catalog/Model/Catalog.php');
 
 $this->title = 'Управление каталогом';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
+
+    <div>
+        <h4>Фильтр по категориям:</h4>
+        <?php $form = ActiveForm::begin([
+            'action' => ['index'],
+            'method' => 'get',
+        ]); ?>
+        <?= Html::dropDownList('category_id', $selected_category_id, \Catalog\Model\Catalog::getKeyValCategories());?>
+        <?= Html::submitButton('Отфильтровать') ?>
+
+        <?php ActiveForm::end(); ?>
+    </div><br/>
 
     <?= GridView::widget([
         'dataProvider' => $data_provider,
@@ -32,7 +47,6 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'header' => 'Категория',
                 'value' => function($model) {
-                    require_once('../../classes/Catalog/Model/Catalog.php');
                     return \Catalog\Model\Catalog::getKeyValCategories()[$model->category_id];
                 }
             ],

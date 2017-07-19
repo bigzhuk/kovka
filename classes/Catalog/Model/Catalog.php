@@ -17,7 +17,7 @@ class Catalog {
      * сюда: self::$categories она должна добавиться и в app\models\Catalog::$categories.
      */
     public static $categories = [
-        1 => ['title' => 'Навесы', 'order' => 1, 'subcategories' => [1,3]],
+        1 => ['title' => 'Навесы', 'order' => 1, 'subcategories' => [1,3, 9, 10]],
         2 => ['title' => 'Балконы', 'order' => 4, 'subcategories' => [1,2]],
         3 => ['title' => 'Беседки', 'order' => 3, 'subcategories' => [1,2]],
         4 => ['title' => 'Лестницы', 'order' => 6, 'subcategories' => [4,5]],
@@ -53,6 +53,8 @@ class Catalog {
         6 => 'Из профнастила',
         7 => 'Откатные',
         8 => 'Гаражные',
+        9 => 'Над крыльцом',
+        10 => 'Для машин',
     ];
 
     public static function getOrderedCategories() {

@@ -47,7 +47,7 @@ $banner = $new_controller->getNewsDecorator()->renderReklamniyBlock($new_rows);
     </div>
     <div class="adv_row">
         <div class="adv">
-            <div class="icon"><i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i><h3 style="color: black">Обслуживание физических и юридических лиц</h3></div>
+            <div class="icon"><i class="fa fa-handshake-o fa-3x"></i><h3 style="color: black">Обслуживание физических и юридических лиц</h3></div>
             Мы заключаем договоры, как с частными лицами, так и с юридическими компаниями, с четким описание всех работ и материалов, прописывая все необходимые пункты, соблюдая законодательство РФ.
             У нас работают квалифицированные юристы, которые подготовят договор в сжатые сроки.
         </div>

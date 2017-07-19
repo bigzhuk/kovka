@@ -44,10 +44,13 @@ class CatalogController extends Controller
      */
     public function actionIndex()
     {
+        $category_id = Yii::$app->request->get('category_id');
+        $query = $category_id ? Catalog::find()->andFilterWhere(['category_id' => $category_id]) : Catalog::find();
         $dataProvider = new ActiveDataProvider([
-            'query' => Catalog::find()
+            'query' => $query,
         ]);
-        return $this->render('list', ['data_provider' => $dataProvider]);
+
+        return $this->render('list', ['data_provider' => $dataProvider, 'selected_category_id' => $category_id]);
     }
 
     public function actionUpdate()
