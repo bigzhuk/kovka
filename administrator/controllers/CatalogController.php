@@ -70,6 +70,7 @@ class CatalogController extends Controller
                 $model->price = Html::encode($form->price);
                 $model->description = Html::encode($form->description);
                 $model->is_active = ($form->is_active === 'on') ? 1 : 0;
+                $model->main_photo_number = (int)$form->main_photo_number;
                 $form->photo = UploadedFile::getInstances($form, 'photo');
                 if ($model->id) {
                     $product_id = $model->id;

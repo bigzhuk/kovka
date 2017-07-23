@@ -16,6 +16,7 @@ public $id;
 public $name;
 public $category_id;
 public $subcategory_id;
+public $main_photo_number;
 public $art;
 public $price;
 public $is_active;
@@ -35,7 +36,7 @@ public $date_update;
     {
         return [
             [['is_active', 'description', 'art', 'price', 'category_id'], 'required'],
-            [['user_id', 'date_update', 'subcategory_id'], 'integer'],
+            [['user_id', 'date_update', 'subcategory_id', 'main_photo_number'], 'integer'],
             [['description'], 'string'],
             [['name'], 'string', 'max' => 255],
             [['photo'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'maxFiles' => 8],
@@ -55,7 +56,8 @@ public $date_update;
             'price' => 'Цена',
             'description' => 'Описание',
             'is_active' => 'Показывать товар?',
-            'photo' => 'Фотографии'
+            'photo' => 'Фотографии',
+            'main_photo_number' => 'Номер главной фотографии',
         ];
     }
 

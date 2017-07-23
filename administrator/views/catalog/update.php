@@ -32,16 +32,22 @@ $this->params['breadcrumbs'][] = $this->title;
         $photos = explode(',', $ar_model->photo);
         $max_key = max(array_keys($photos));
             $key_row_close = 0;
+            $photo_number_options = [];
             foreach ($photos as $key => $photo) {
+                $photo_number = (string)($key+1);
+                $photo_number_options[$photo_number] = '№'.$photo_number;
                 if ($key % 4 === 0) {
                     $key_row_close = $key;
                     $form_fields .= '<div class="row" style="margin-top: 20px;">';
                 }
-                    $form_fields .= '<div class="col-lg-3"><img height="200" width="200" src="' . $photo . '"></div>';
+                    $form_fields .= '<div class="col-lg-3"><img height="200" width="200" src="' . $photo . '"><br/> №'.$photo_number.'</div>';
                 if (($key_row_close + 3) === $key || $max_key === $key) {
                     $form_fields .= '</div>';
                 }
             }
+        $model->main_photo_number = $ar_model->main_photo_number;
+        $form_fields .= '<br/>'.$form->field($model, 'main_photo_number')->radioList($photo_number_options, ['separator' => '&nbsp;&nbsp;&nbsp;&nbsp;']);
+
 
 
     //todo сделать загрузку нескольких файлов. Здесь крестик рядом с каждой фоткой и удаления - аяксом.

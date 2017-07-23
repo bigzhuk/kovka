@@ -197,10 +197,11 @@ HTML;
             return 'Товар не найден';
         }
         $photos = $this->getPhotos($good);
+        $main_photo_number = !empty($good['main_photo_number']) ? $good['main_photo_number'] - 1 : 0;
         return
             '<h2>'.$good['name'].'</h2>
             <div>
-                <div style="float: left; margin-right: 15px; min-height: 200px;"><img src="'.$photos[0].'" style=" border-radius: 5px; width: 200px; height: 200px; "></div>
+                <div style="float: left; margin-right: 15px; min-height: 200px;"><img src="'.$photos[$main_photo_number].'" style=" border-radius: 5px; width: 200px; height: 200px; "></div>
                 <div style="margin-top:25px; margin-bottom: 5px;"><span style="font-weight: bold">Артикул:</span> <span class="art">'.$good['art'].'</span></div>
                 <!--<div style="margin-bottom: 5px;"><span style="font-weight: bold">Категория:</span> «'.$categories[$good['category_id']].'»</div>-->
                 <div style="margin-bottom: 5px;"><span style="font-weight: bold">Описание:</span> '.$good['description'].'</div>
