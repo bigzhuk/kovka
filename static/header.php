@@ -36,10 +36,10 @@
 		<span style="color: white">Имя:</span> <input id="recall_name"  name="name" type="text" ><br>
 		<span style="color: white">Тел.:</span> <input id="recall_phone" name="phone" type="text"><br>
             <span style="color: white">Время звонка:</span>
-            <select style="width: 40px" id="recall_time_h" name="call_time_h">
+            <select style="width: 40px" id="call_time_h" name="call_time_h">
                 <?= \App\Index::renderCallTimeOptions(\App\Index::getCallHourOptions()); ?>
             </select><span style="color: white"> :</span>
-            <select style="width: 40px" id="recall_time_m" name="call_time_m">
+            <select style="width: 40px" id="call_time_m" name="call_time_m">
                 <?= \App\Index::renderCallTimeOptions(\App\Index::getCallMinuteOptions()); ?>
             </select>
 		<input style="margin-top: 10px" id="recall_btn" type="button" value="Отправить" onclick="recall();">
@@ -152,7 +152,7 @@
 			url: 'engine/ajax.php',
 			type: 'POST',
 			dataType: 'json',
-			data: {action: 'recall', phone: phone, name: name, call_time: call_time },
+			data: {action: 'recall', phone: phone, name: name, call_time: call_time},
 		})
 		.done(function(data) {
 			console.log(data);
