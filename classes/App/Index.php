@@ -12,7 +12,7 @@ class Index
     public static function getCallHourOptions() {
         $options = [];
         for ($h = 9; $h < 22; $h++) {
-            $hour_shift = date('i') >= 45 ? 4 : 3; // +3 - гринвич, +4 - гринвич и еще 1 час, когда время 11:45, а показать надо 12:00.
+            $hour_shift = date('i') >= 45 ? 1 : 0; //  +1 час, когда время 11:45, а показать надо 12:00.
             $selected = $h == date('H') + $hour_shift ? 'selected' : '';
             $options[] = ['value' => $h, 'selected' => $selected];
         }
