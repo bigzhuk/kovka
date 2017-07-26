@@ -31,14 +31,23 @@
 	
 	<div id="recall_form" class="popup">
 		<p style="color:white; text-align: left">
-		<?= \App\Index::$phones[0] ?> или оставьте ваш телефон и мы перезвоним.:) Ежедневно с 09:00 до 22:00</p>
+		<?= \App\Index::$phones[0] ?> или оставьте ваш телефон и мы сами перезвоним.:)</p>
+        <form name="recall_form">
 		<span style="color: white">Имя:</span> <input id="recall_name"  name="name" type="text" ><br>
 		<span style="color: white">Тел.:</span> <input id="recall_phone" name="phone" type="text"><br>
-		<input id="recall_btn" type="button" value="Отправить" onclick="recall();">
+            <span style="color: white">Время звонка:</span>
+            <select style="width: 40px" id="recall_time_h" name="call_time_h">
+                <?= \App\Index::renderCallTimeOptions(\App\Index::getCallHourOptions()); ?>
+            </select><span style="color: white"> :</span>
+            <select style="width: 40px" id="recall_time_m" name="call_time_m">
+                <?= \App\Index::renderCallTimeOptions(\App\Index::getCallMinuteOptions()); ?>
+            </select>
+		<input style="margin-top: 10px" id="recall_btn" type="button" value="Отправить" onclick="recall();">
+        </form>
 	</div>
 
 	<div id="recall_success" class="popup">
-		<p style="color: white">Спасибо. В ближайшее время вам перезвонят!</p>
+		<p style="color: white">Спасибо. В указанное время вам перезвонят!</p>
 	</div>
 
 	<div id="map" class="popup" style="width: 800px; margin-left: -400px; top: 10%;">
@@ -136,13 +145,14 @@
 	function recall(){
 		var phone = $('#recall_phone').val();
 		var name = $('#recall_name').val();
+		var call_time = $('#call_time_h').val() + ':' + $('#call_time_m').val();
 
 		$('#recall_btn').prop('disabled', 'disabled');
 		$.ajax({
 			url: 'engine/ajax.php',
 			type: 'POST',
 			dataType: 'json',
-			data: {action: 'recall', phone: phone, name: name},
+			data: {action: 'recall', phone: phone, name: name, call_time: call_time },
 		})
 		.done(function(data) {
 			console.log(data);

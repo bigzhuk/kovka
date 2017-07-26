@@ -12,14 +12,18 @@
 	function recall() {
 		$phone = $_POST['phone'];
 		$name = $_POST['name'];
+        $call_time = $_POST['call_time'];
 		if (empty($phone)) {
-			die;
+            $result['error'] = 'recall';
+			return $result;
 		}
-		$mailto = 'sus-stroy@mail.ru';
+		//$mailto = 'sus-stroy@mail.ru';
+        $mailto = 'bigzhuk@ya.ru';
 		$subject = 'Обратный звонок';
 		$message = 'Обратный звонок от пользователя sus-stroy.ru<br>
 		Имя: '.$name.'<br>
-		Тел.: '.$phone;
+		Тел.: '.$phone.'<br>
+		Время звонка.: '.$call_time.'<br>';
 		if (sendMail($mailto, $subject, $message)){
 			$result['success'] = 'sendMail';
 		} else if (mail($mailto, $subject, $message)){
