@@ -17,8 +17,8 @@
             $result['error'] = 'recall';
 			return $result;
 		}
-		//$mailto = 'sus-stroy@mail.ru';
-        $mailto = 'bigzhuk@ya.ru';
+		$mailto = 'sus-stroy@mail.ru';
+        //$mailto = 'bigzhuk@ya.ru';
 		$subject = 'Обратный звонок';
 		$message = 'Обратный звонок от пользователя sus-stroy.ru<br/>
 		Имя: '.$name.'<br/>
