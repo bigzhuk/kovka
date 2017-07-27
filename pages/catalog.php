@@ -74,7 +74,7 @@ $decorator = new \Catalog\Decorator\Catalog();
                     },
                     image: {
                         titleSrc: function(item) {
-                            return 'Заказать: <?= \App\Index::$phones[0]?>. <a style="color: white" href="/catalog?category_id=1&id=' + item.el.attr('id') + '"><div class="button" style="display: inline-block;">Подробнее</div></a>';
+                            return '<div style="color: white;">«' + item.el.attr('title') + '». Заказать: <?= \App\Index::$phones[0]?>. <a style="color: white" href="/catalog?category_id=1&id=' + item.el.attr('id') + '"><div class="button" style="display: inline-block;">Подробнее</div></a></div>';
                         }
                     },
 

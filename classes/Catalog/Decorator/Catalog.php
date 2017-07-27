@@ -164,7 +164,7 @@ HTML;
                     $good_table .= '<tr class="parent-container">';
                 }
                 $main_photo_number = $this->getMainPhotoNumber($good);
-                $good_table .= '<td href="'.$photos[$main_photo_number].'" id="'.$good['id'].'">'.$this->renderGoodBlock($good).'</td>';
+                $good_table .= '<td href="'.$photos[$main_photo_number].'" id="'.$good['id'].'" title="'.$good['art'].'">'.$this->renderGoodBlock($good).'</td>';
                 if (($key_row_close + 3) === $key || $max_key === $key) {
                     $good_table .= '</tr>';
                 }
