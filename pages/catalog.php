@@ -69,8 +69,15 @@ $decorator = new \Catalog\Decorator\Catalog();
                     delegate: 'td', // child items selector, by clicking on it popup will open
                     type: 'image',
                     gallery: {
-                        enabled: true
+                        enabled: true,
+                        tCounter: '%curr% из %total%'
                     },
+                    image: {
+                        titleSrc: function(item) {
+                            return 'Заказать: <?= \App\Index::$phones[0]?>. <a style="color: white" href="/catalog?category_id=1&id=' + item.el.attr('id') + '"><div class="button" style="display: inline-block;">Подробнее</div></a>';
+                        }
+                    },
+
                 });
             });
         });

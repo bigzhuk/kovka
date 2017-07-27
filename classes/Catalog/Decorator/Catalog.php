@@ -17,16 +17,15 @@ class Catalog {
 
     private function renderGoodBlock(array $good) {
         $photos = $this->getPhotos($good);
-        $thumb_photo_path = self::getThumbPathFromPhotoPath($photos[0]);
-        $good_link = 'http://'.$_SERVER['HTTP_HOST'].'/catalog?category_id='.$good['category_id'].'&id='.$good['id'];
+        $main_photo_number = $this->getMainPhotoNumber($good);
+        $thumb_photo_path = self::getThumbPathFromPhotoPath($photos[$main_photo_number]);
+
       return <<<HTML
-      <a href="{$good_link}">
       <div class="prod_box"> 
-        <div class ="img_box"><img height="200" width="200" src="{$thumb_photo_path}"></div>
+        <div class ="img_box parent_"><img height="200" width="200" src="{$thumb_photo_path}"></div>
         <div><span class="art">{$good['art']}</span> {$good['name']}</div>
         <div><span class="price">{$good['price']}</span> ₽</div>
       </div>
-      </a>
 HTML;
     }
 
@@ -158,11 +157,14 @@ HTML;
             <tbody>';
             $col_count = $this->getColCount();
             foreach ($goods as $key => $good) {
+                $photos = $this->getPhotos($good);
+
                 if ($key % $col_count === 0) {
                     $key_row_close = $key;
-                    $good_table .= '<tr>';
+                    $good_table .= '<tr class="parent-container">';
                 }
-                $good_table .= '<td>'.$this->renderGoodBlock($good).'</td>';
+                $main_photo_number = $this->getMainPhotoNumber($good);
+                $good_table .= '<td href="'.$photos[$main_photo_number].'" id="'.$good['id'].'">'.$this->renderGoodBlock($good).'</td>';
                 if (($key_row_close + 3) === $key || $max_key === $key) {
                     $good_table .= '</tr>';
                 }
@@ -174,19 +176,20 @@ HTML;
         return $good_table;
     }
 
+    /**
+     * @param array $good
+     * @return int
+     */
+    private function getMainPhotoNumber($good) {
+        return !empty($good['main_photo_number']) ? $good['main_photo_number'] - 1 : 0;
+    }
+
     public function renderCategory($category_id, $subcategory_id,  $goods) {
         $title = '';
         $title .= $category_id ? \Catalog\Model\Catalog::getKeyValCategories()[$category_id].' ' : '';
         $title .= $subcategory_id ? \Catalog\Model\Catalog::$subcategories[$subcategory_id].' ' : '';
         return
             '<h2>'.$title.'</h2>
-            <div style="padding-bottom: 10px">
-            <span style="text-align: center;
-    color: #fff;
-    background: #C42034;
-    padding: 10px;
-    border-radius: 3px;">Выбрать другую категорию: '.$this->renderChooseCategoryList().'</span>
-    </div>
             <div align="center">'.$this->renderCatalogTable($goods).'
             <p><a href="/catalog">Вернуться в каталог</a></p>
             </div>';
@@ -197,7 +200,7 @@ HTML;
             return 'Товар не найден';
         }
         $photos = $this->getPhotos($good);
-        $main_photo_number = !empty($good['main_photo_number']) ? $good['main_photo_number'] - 1 : 0;
+        $main_photo_number = $this->getMainPhotoNumber($good);
         return
             '<h2>'.$good['name'].'</h2>
             <div>
