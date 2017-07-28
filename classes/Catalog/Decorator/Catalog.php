@@ -129,8 +129,8 @@ HTML;
     public function renderCatalog($categories, $title) {
         return
             '<div align="center">
-                <div style="float: left; margin-top: -6px;">'.$this->renderLeftMenu().'</div>
-                <div style="float: right;">'.$this->renderCategoryTable($categories).'</div>
+                <!--<div style="float: left; margin-top: -6px;">'.$this->renderLeftMenu().'</div>-->
+                <div> <!--style="float: right;"-->'.$this->renderCategoryTable($categories).'</div>
                 <div style="clear:both;"></div>
             </div>';
     }
@@ -153,7 +153,7 @@ HTML;
         $max_key = count($goods);
         $good_table = $this->getPaginator();
         $good_table .= '
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped table-bordered parent-container"">
             <tbody>';
             $col_count = $this->getColCount();
             foreach ($goods as $key => $good) {
@@ -161,7 +161,7 @@ HTML;
 
                 if ($key % $col_count === 0) {
                     $key_row_close = $key;
-                    $good_table .= '<tr class="parent-container">';
+                    $good_table .= '<tr>';
                 }
                 $main_photo_number = $this->getMainPhotoNumber($good);
                 $good_table .= '<td href="'.$photos[$main_photo_number].'" id="'.$good['id'].'" title="'.$good['art'].'">'.$this->renderGoodBlock($good).'</td>';

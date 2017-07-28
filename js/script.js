@@ -5,12 +5,12 @@ $(document).ready(function() {
 	$(window).on('scroll', scrollPage);
 	subMenu();
 
-	$('.prod_box').on('mouseover', function () {
+	/* категории под картинками !!! $('.prod_box').on('mouseover', function () {
 		$(this).find('.subcategories_list').show();
     });
     $('.prod_box').on('mouseout', function () {
         $(this).find('.subcategories_list').hide();
-    });
+    });*/
 
 	/* левое меню аккордеон */
     var checkCookie = $.cookie("sub-nav");
