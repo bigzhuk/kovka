@@ -129,15 +129,15 @@ code {
 
         <ul class="slides">
 
-            <a class="slide" href="/navesy">
+            <a class="slide" href="/catalog?category_id=2">
             <img class="main_banner_item" src="images/slider_1.jpg">
             </a>
 
-            <a class="slide" href="/zabory">
+            <a class="slide" href="/catalog?category_id=6">
             <img class="main_banner_item" src="images/slider_2.jpg">
             </a>
 
-            <a class="slide" href="/lestnicy">
+            <a class="slide" href="/catalog?category_id=19">
             <img class="main_banner_item" src="images/slider_3.jpg">
             </a>
 
