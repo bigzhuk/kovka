@@ -205,7 +205,7 @@ class Catalog {
         if ($price_from === 0) {
             return '';
         }
-        return" AND price >={$price_from} ";
+        return" AND price_int >={$price_from} ";
     }
 
     /**
@@ -216,7 +216,7 @@ class Catalog {
         if ($price_to === 0) {
             return '';
         }
-        return" AND price <={$price_to} ";
+        return" AND price_int <={$price_to} ";
     }
 
     private function getCategoryWhere($category_id, $subcategory_id) {
