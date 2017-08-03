@@ -4,6 +4,7 @@ $(document).ready(function() {
 	scrollPage();
 	$(window).on('scroll', scrollPage);
 	subMenu();
+    recall_radio_checker();
 
 	/* категории под картинками !!! $('.prod_box').on('mouseover', function () {
 		$(this).find('.subcategories_list').show();
@@ -97,4 +98,19 @@ function subMenu() {
 
 function searchSubmit() {
     $('#search-form').submit();
+}
+
+function recall_radio_checker() {
+    var bt_radio_trigger = $('.bt-radio-trigger');
+    bt_radio_trigger.on('mouseover', function() {
+        $(this).parent().css({'background': 'white'});
+    });
+    bt_radio_trigger.on('mouseout', function() {
+        $(this).parent().css({'background': '#a4a4a4'});
+    });
+    bt_radio_trigger.on('click', function() {
+        $(this).parent().parent().find('a').removeClass('checked');
+        $(this).addClass('checked');
+        $(this).prev().attr('checked', 'checked');
+    });
 }

@@ -12,7 +12,20 @@
 	function recall() {
 		$phone = $_POST['phone'];
 		$name = $_POST['name'];
-        $call_time = $_POST['call_time'];
+
+        switch ($_POST['call_time']) {
+            case 1:
+                $call_time = 'Первая половина дня 9:00-15:00';
+                break;
+            case 2:
+                $call_time = 'Вторая половина дня 15:00-21:00';
+                break;
+            case 3:
+                $call_time = 'В ночное время 21:00-2:00';
+                break;
+            default:
+                $call_time = '';
+        }
 		if (empty($phone)) {
             $result['error'] = 'recall';
 			return $result;
@@ -22,8 +35,10 @@
 		$subject = 'Обратный звонок';
 		$message = 'Обратный звонок от пользователя sus-stroy.ru<br/>
 		Имя: '.$name.'<br/>
-		Тел.: '.$phone.'<br/>
-		Время звонка.: '.$call_time.'<br/>';
+		Тел.: '.$phone.'<br/>';
+		if ($call_time) {
+            $message .= 'Время звонка.: '.$call_time.'<br/>';
+		}
 
 		$headers = '"From: robot@sus-stroy.ru\r\n" 
              ."Content-type: text/html; charset=utf-8\r\n"
@@ -36,6 +51,7 @@
 		} else {
 			$result['error'] = 'recall';
 		}
+
 		return $result;
 	}
 

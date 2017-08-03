@@ -30,20 +30,7 @@
 	<!-- /Yandex.Metrika counter -->
 	
 	<div id="recall_form" class="popup">
-		<p style="color:white; text-align: left">
-		<?= \App\Index::$phones[0] ?> или оставьте ваш телефон и мы сами перезвоним.:)</p>
-        <form name="recall_form">
-		<span style="color: white">Имя:</span> <input id="recall_name"  name="name" type="text" ><br>
-		<span style="color: white">Тел.:</span> <input id="recall_phone" name="phone" type="text"><br>
-            <span style="color: white">Время звонка:</span>
-            <select style="width: 40px" id="call_time_h" name="call_time_h">
-                <?= \App\Index::renderCallTimeOptions(\App\Index::getCallHourOptions()); ?>
-            </select><span style="color: white"> :</span>
-            <select style="width: 40px" id="call_time_m" name="call_time_m">
-                <?= \App\Index::renderCallTimeOptions(\App\Index::getCallMinuteOptions()); ?>
-            </select>
-		<input style="margin-top: 10px" id="recall_btn" type="button" value="Отправить" onclick="recall();">
-        </form>
+        <?= \App\Index::renderBackCall(); ?>
 	</div>
 
 	<div id="recall_success" class="popup">
@@ -145,7 +132,7 @@
 	function recall(){
 		var phone = $('#recall_phone').val();
 		var name = $('#recall_name').val();
-		var call_time = $('#call_time_h').val() + ':' + $('#call_time_m').val();
+		var call_time = $('input[name=form_radio_item]:checked').val();
 
 		$('#recall_btn').prop('disabled', 'disabled');
 		$.ajax({
@@ -161,7 +148,7 @@
 			$('#recall_success').fadeIn(500);
 			setInterval(function(){
 				hidePopup();
-			}, 3000);
+			}, 2000);
 		});
 	}
 </script>
