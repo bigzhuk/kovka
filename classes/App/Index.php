@@ -75,6 +75,9 @@ class Index
          <div class="bt-radio"><input class="radio" type="radio" name="form_radio_item" value="3" data-text="В ночное время <span>21:00-2:00</span>" style="display: none;"><a href="javascript:void(0)" class="bt-radio-trigger" data-radioname="form_radio_item">В ночное время <span>21:00-2:00</span></a></div>
          <div class="clear"></div>
      </div>
+     <div>
+         <textarea id="recall_msg" name="recall_msg" style="width: 90%; margin-top: 10px; font-size: 16px; height: 80px;" placeholder="Текст сообщения"></textarea>
+     </div>
    
     <input style="margin-top: 10px" id="recall_btn" type="button" value="Отправить" onclick="recall();">
 </form>

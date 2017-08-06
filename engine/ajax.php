@@ -26,6 +26,8 @@
             default:
                 $call_time = '';
         }
+        $msg = strip_tags($_POST['call_msg']);
+
 		if (empty($phone)) {
             $result['error'] = 'recall';
 			return $result;
@@ -39,6 +41,9 @@
 		if ($call_time) {
             $message .= 'Время звонка.: '.$call_time.'<br/>';
 		}
+		if ($msg) {
+            $message .= 'Сообщение от клиента.: '.$msg.'<br/>';
+        }
 
 		$headers = '"From: robot@sus-stroy.ru\r\n" 
              ."Content-type: text/html; charset=utf-8\r\n"

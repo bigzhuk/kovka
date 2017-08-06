@@ -133,13 +133,14 @@
 		var phone = $('#recall_phone').val();
 		var name = $('#recall_name').val();
 		var call_time = $('input[name=form_radio_item]:checked').val();
+		var call_msg = $('#recall_msg').val();
 
 		$('#recall_btn').prop('disabled', 'disabled');
 		$.ajax({
 			url: 'engine/ajax.php',
 			type: 'POST',
 			dataType: 'json',
-			data: {action: 'recall', phone: phone, name: name, call_time: call_time},
+			data: {action: 'recall', phone: phone, name: name, call_time: call_time, call_msg: call_msg},
 		})
 		.done(function(data) {
 			console.log(data);
