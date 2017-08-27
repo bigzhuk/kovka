@@ -104,3 +104,9 @@ if ($category_id || !empty($search_params)) {
 
 ?>
 </div>
+
+    <?php
+        if (!empty($category_id) && \Catalog\Model\Catalog::getKeyValCategories()[$category_id] === 'Навесы') {
+            include_once('navesy.php');
+        }
+    ?>

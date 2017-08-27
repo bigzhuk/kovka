@@ -352,4 +352,15 @@ HTML;
         return $out;
     }
 
+    public static function renderRalTds($ral, $from, $to) {
+
+        $out = '';
+        for ($i=$from; $i<=$to; $i++) {
+            $path = explode('/', $ral[$i]);
+            $title = substr($path[2], 0,-4);
+            $out .= '<td><img src="'.$ral[$i].'"><br>'.$title.'</td>';
+        }
+        return $out;
+    }
+
 }

@@ -2,22 +2,61 @@
 define('START_WORK', 2010);
 ?>
 
-<h1>Навесы из поликарбоната</h1>
+<h1>Информация о навесах:</h1>
 
 <div class="container">
-	<img src="images/navesy_big/navesi_iz_polikorbonata.jpg"><br/><br/>
+	<img src="images/navesy_big/navesi_iz_polikorbonata.jpg" style="width: 100%;"><br/><br/>
 	<h2>Цены на навесы из поликарбоната</h2>
-	<p><a href="/price_list">Цены на навесы</a> в нашей компании начинаются <span style="color: #C42034; font-weight: bold">от 1800</span> р за м².
+	<p>Сделав заказ сейчас, вы получите <span style="color: #C42034; font-weight: bold">бесплатно</span>: </p>
+        <ul class="page_list">
+            <li>Выезд замерщика;
+            <li>Доставку по Москве и области;
+            <li>Гарантию до 25 лет;
+        </ul>
+    <p>
+        <a href="/price_list">Цены на навесы</a> в нашей компании начинаются <span style="color: #C42034; font-weight: bold">от 1800</span> р за м².
 		До конца лета действует <span style="color: #C42034; font-weight: bold">Акция -</span> cкидка 10% на изготовление
 		любого навеса из поликарбоната.
 		Позвоните сейчас и убедитесь: наши цены ниже, чем у конкурентов. Держать низкие цены нам позволяет
-		наличие собственного производства и большой объем заказов. </p>
+		наличие собственного производства и большой объем заказов.
+    </p>
+    <div align="center"><div class="button" onclick="show_recall();" >Заказать</div></div>
+    <h2>Цветовая гамма</h2>
+    <p> <strong>Цвета покрытия<strong>:</p>
+   <img src="images/navesy_big/colors.jpg" style="width: 100%;"><br/><br/>
+    <p><strong>Цвета металлоконструкций</strong>:</p>
+    <?php $ral = glob('images/navesy_big/RAL*');?>
+    <table style="width: 100%; text-align: center;">
+        <tbody>
+        <tr>
+            <?php echo  \Catalog\Decorator\Catalog::renderRalTds($ral, 0, 5); ?>
+        </tr>
+        <tr>
+            <?php echo  \Catalog\Decorator\Catalog::renderRalTds($ral, 6, 11); ?>
+        </tr>
+        <tr>
+            <?php echo  \Catalog\Decorator\Catalog::renderRalTds($ral, 12, 17); ?>
+        </tr>
+        </tbody>
+    </table><br/>
+    <div align="center"><div class="button" onclick="show_recall();" >Заказать</div></div>
+
+    <h2>Материалы</h2>
+    <p>Типы кровельного покрытия:</p>
+    <ul class="page_list">
+        <li>Cотовый поликарбонат;
+        <li>Монолитный поликарбонат;
+        <li>Металлочерепица;
+        <li>Профнастил;
+        <li>Мягкая кровля;
+    </ul>
+    <p>Поликарбонат – современный материал, вобравший в себя преимущества стекла
+        (прозрачность, визуальная легкость, высокая светопроницаемость), но не обладающий его недостатками,
+        главные из которых - хрупкость и большой вес.  Изготовление навесов из этого материала позволило получить практичную
+        конструкцию, которая смотрится так же изящно, как стеклянная, но при этом отличается ударопрочностью и безопасностью.</p>
+    <div align="center"><div class="button" onclick="show_recall();" >Заказать</div></div>
 	<h2>Виды навесов</h2>
-	<p>Поликарбонат – современный материал, вобравший в себя преимущества стекла
-		(прозрачность, визуальная легкость, высокая светопроницаемость), но не обладающий его недостатками,
-		главные из которых - хрупкость и большой вес.  Изготовление навесов из этого материала позволило получить практичную
-		конструкцию, которая смотрится так же изящно, как стеклянная, но при этом отличается ударопрочностью и безопасностью.</p>
-	<p>Наша компания изготавливает навесы, имеющие различные <strong>сферы применения</strong>:</p>
+    <p>Наша компания изготавливает навесы, имеющие различные <strong>сферы применения</strong>:</p>
 	<ul class="page_list">
 		<li>Навесы для автомобиля;
 		<li>Навесы для бассейнов;
@@ -43,7 +82,8 @@ define('START_WORK', 2010);
 			<div align="center">Кованые. <span style="color: #C42034">От 4000 р за м²</span></div>
 		</div>
 	</div>
-	<div style="clear: both"></div>
+	<div style="clear: both"></div><br/>
+    <div align="center"><div class="button" onclick="show_recall();" >Заказать</div></div>
 	<h2>Навесы для автомобиля</h2>
 	<p>
 		<img src="images/navesy_big/naves_iz_polikarbonata_dlya_avto.jpg" class="left" style="width: 200px; height: 150px; margin-bottom: 5px;">
@@ -98,65 +138,5 @@ define('START_WORK', 2010);
 		<div align="center"><div class="button" onclick="show_recall();" >Заказать</div></div>
 	</p>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-
-	<style>
-		.mini_gallery{
-			/*border-collapse: collapse;*/
-			height: 200px;
-			max-width: 100% !important;
-			margin-bottom: 20px;
-			margin-left: auto;
-			margin-right: auto;
-			/*width: 100%;	*/
-			/*cellspacing: 10px;*/
-		}
-		.mini_gallery>tbody>tr>td{
-			max-width: 200px !important;
-			box-shadow: 0 0 5px rgba(0,0,0,.33);
-			border-radius: 3px;
-			transition: width .5s, filter .5s;
-			overflow: hidden;
-			/*filter: grayscale(50%);*/
-			background-position: center center;
-			background-repeat: no-repeat;
-			width: 70px;
-			/*min-width: 50px;*/
-		}
-		.mini_gallery>tbody>tr>td:hover{
-			width: 200px !important;
-			cursor: pointer;
-			/*filter: grayscale(0%);*/
-			/*min-width: 190px;*/
-		}
-		.full{
-			/*width: 250px !important;	*/
-		}
-	</style>
-
-
-		<?php
-		$folders = array('naves' => 'Фото наших работ');
-		foreach ($folders as $folder => $title) {
-			echo \Gallery\Index::draw_photo_table($folder, $title, 14);
-		}
-		?>
-
-
-	<script>
-		$(document).ready(function() {
-			$('.parent-container').each(function(index, el) {
-				$(el).magnificPopup({
-					delegate: 'td', // child items selector, by clicking on it popup will open
-					type: 'image',
-					gallery: {
-						enabled: true
-					},
-				});
-			});
-			// $('.parent-container')
-		});
-	</script>
 
 </div>
