@@ -6,7 +6,7 @@ define('START_WORK', 2010);
 
 <div class="container">
 	<img src="images/navesy_big/navesi_iz_polikorbonata.jpg" style="width: 100%;"><br/><br/>
-	<h2>Цены на навесы из поликарбоната</h2>
+	<h2>Цены</h2>
 	<p>Сделав заказ сейчас, вы получите <span style="color: #C42034; font-weight: bold">бесплатно</span>: </p>
         <ul class="page_list">
             <li>Выезд замерщика;
