@@ -32,7 +32,7 @@
             $result['error'] = 'recall';
 			return $result;
 		}
-		$mailto = 'sus-stroy@mail.ru, bigzhuk@ya.ru';
+		$mailto = 'sus-stroy333@ya.ru, bigzhuk@ya.ru';
 		$subject = 'Обратный звонок';
 		$message = 'Обратный звонок от пользователя sus-stroy.ru<br/>
 		Имя: '.$name.'<br/>
