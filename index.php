@@ -33,10 +33,10 @@ require_once('classes/autoload.php');
 				    width: 40px;
 					height: 40px;
 					position: fixed!important;
-					bottom: 150px;
+					bottom: 140px;
 					opacity: 0.8;
 					z-index: 100!important;
-					right: 100px;
+					left: 40px;
 					cursor: pointer">
 				<a onclick="show_recall();"><img id="phone_img" src="/images/phone.png" /></a>
 			</div>
